@@ -51,17 +51,17 @@ class LoginViewModel {
             })
             .mapJSON()
             .do(onNext: { (json) in
-                
-                var appToken = Token()
-                appToken.token = json["token"].string
+//                var appToken = Token()
+//                appToken.token = json["token"].string
             }).map({ (json) in
                 
-                if let message = json["message"].string {
-                    return LoginResult.field(message: message)
-                } else {
-                    return LoginResult.ok
-                }
-                
+//                if let message = json["message"].string {
+//                    return LoginResult.field(message: message)
+//                } else {
+//                    return LoginResult.ok
+//                }
+//
+                return LoginResult.ok
                 
             }).asDriver(onErrorJustReturn: LoginResult.field(message: "Oops something went wrong")).debug()
         
