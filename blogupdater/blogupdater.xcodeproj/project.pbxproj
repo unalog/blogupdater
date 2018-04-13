@@ -8,22 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		A675BFFD8C053564492E3DDC /* Pods_blogupdater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE5E1B3585AF9443A63B497 /* Pods_blogupdater.framework */; };
+		B5044E1020803F270020C56C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5044E0F20803F270020C56C /* MainViewController.swift */; };
+		B5044E1420804AF40020C56C /* NetworkingLoggerPlaugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5044E1320804AF40020C56C /* NetworkingLoggerPlaugin.swift */; };
 		B58C5893207F2BE4008FBCC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C5892207F2BE4008FBCC1 /* AppDelegate.swift */; };
-		B58C5895207F2BE4008FBCC1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C5894207F2BE4008FBCC1 /* ViewController.swift */; };
 		B58C5898207F2BE4008FBCC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58C5896207F2BE4008FBCC1 /* Main.storyboard */; };
 		B58C589A207F2BE5008FBCC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B58C5899207F2BE5008FBCC1 /* Assets.xcassets */; };
 		B58C589D207F2BE5008FBCC1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58C589B207F2BE5008FBCC1 /* LaunchScreen.storyboard */; };
+		B58C58A6207F30E9008FBCC1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C58A5207F30E9008FBCC1 /* LoginViewController.swift */; };
+		B58C58A9207F32FB008FBCC1 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C58A8207F32FB008FBCC1 /* LoginViewModel.swift */; };
+		B58C58AB207F338F008FBCC1 /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C58AA207F338F008FBCC1 /* LoginResult.swift */; };
+		B58C58AE207F360A008FBCC1 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C58AD207F360A008FBCC1 /* GitHubAPI.swift */; };
+		B58C58B0207F37D0008FBCC1 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C58AF207F37D0008FBCC1 /* Token.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		343DEF06550894B3A79A4B77 /* Pods-blogupdater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blogupdater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-blogupdater/Pods-blogupdater.debug.xcconfig"; sourceTree = "<group>"; };
+		B5044E0F20803F270020C56C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B5044E1320804AF40020C56C /* NetworkingLoggerPlaugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingLoggerPlaugin.swift; sourceTree = "<group>"; };
 		B58C588F207F2BE4008FBCC1 /* blogupdater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blogupdater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58C5892207F2BE4008FBCC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B58C5894207F2BE4008FBCC1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B58C5897207F2BE4008FBCC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B58C5899207F2BE5008FBCC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B58C589C207F2BE5008FBCC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B58C589E207F2BE5008FBCC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B58C58A5207F30E9008FBCC1 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B58C58A8207F32FB008FBCC1 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		B58C58AA207F338F008FBCC1 /* LoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
+		B58C58AD207F360A008FBCC1 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
+		B58C58AF207F37D0008FBCC1 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		CEF5762421A36E519145C9DB /* Pods-blogupdater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blogupdater.release.xcconfig"; path = "Pods/Target Support Files/Pods-blogupdater/Pods-blogupdater.release.xcconfig"; sourceTree = "<group>"; };
 		FFE5E1B3585AF9443A63B497 /* Pods_blogupdater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blogupdater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -78,14 +90,44 @@
 		B58C5891207F2BE4008FBCC1 /* blogupdater */ = {
 			isa = PBXGroup;
 			children = (
+				B58C58AC207F35F7008FBCC1 /* Services */,
+				B58C58A7207F3295008FBCC1 /* ViewModel */,
+				B58C58A4207F30D1008FBCC1 /* ViewController */,
 				B58C5892207F2BE4008FBCC1 /* AppDelegate.swift */,
-				B58C5894207F2BE4008FBCC1 /* ViewController.swift */,
 				B58C5896207F2BE4008FBCC1 /* Main.storyboard */,
 				B58C5899207F2BE5008FBCC1 /* Assets.xcassets */,
 				B58C589B207F2BE5008FBCC1 /* LaunchScreen.storyboard */,
 				B58C589E207F2BE5008FBCC1 /* Info.plist */,
 			);
 			path = blogupdater;
+			sourceTree = "<group>";
+		};
+		B58C58A4207F30D1008FBCC1 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B58C58A5207F30E9008FBCC1 /* LoginViewController.swift */,
+				B5044E0F20803F270020C56C /* MainViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		B58C58A7207F3295008FBCC1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				B58C58A8207F32FB008FBCC1 /* LoginViewModel.swift */,
+				B58C58AA207F338F008FBCC1 /* LoginResult.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		B58C58AC207F35F7008FBCC1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B58C58AD207F360A008FBCC1 /* GitHubAPI.swift */,
+				B58C58AF207F37D0008FBCC1 /* Token.swift */,
+				B5044E1320804AF40020C56C /* NetworkingLoggerPlaugin.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,11 +206,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-blogupdater/Pods-blogupdater-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -202,8 +252,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B58C5895207F2BE4008FBCC1 /* ViewController.swift in Sources */,
+				B5044E1420804AF40020C56C /* NetworkingLoggerPlaugin.swift in Sources */,
+				B5044E1020803F270020C56C /* MainViewController.swift in Sources */,
+				B58C58AB207F338F008FBCC1 /* LoginResult.swift in Sources */,
+				B58C58A6207F30E9008FBCC1 /* LoginViewController.swift in Sources */,
 				B58C5893207F2BE4008FBCC1 /* AppDelegate.swift in Sources */,
+				B58C58B0207F37D0008FBCC1 /* Token.swift in Sources */,
+				B58C58AE207F360A008FBCC1 /* GitHubAPI.swift in Sources */,
+				B58C58A9207F32FB008FBCC1 /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +406,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = blogupdater/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.una.blogupdater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -365,7 +424,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = blogupdater/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.una.blogupdater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

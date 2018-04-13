@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,16 @@ class MainViewController: UIViewController {
     }
     
 
+    override func viewDidAppear(_ animated: Bool) {
+        super .viewDidAppear(animated)
+        
+        let appToken = Token()
+        
+        if appToken.tokenExists ==  false{
+            
+            performSegue(withIdentifier: "showLogin", sender: self)
+        }
+    }
     /*
     // MARK: - Navigation
 

@@ -7,6 +7,8 @@ target 'blogupdater' do
 
   # Pods for blogupdater
 
- pod 'RxSwift', '3.4.0'
- pod 'SwiftyJSON', '3.1.4'
+ pod 'RxSwift'
+ pod 'RxCocoa'
+ pod 'SwiftyJSON'
+ pod 'Moya/RxSwift'
 end
