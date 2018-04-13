@@ -13,10 +13,13 @@ import RxSwift
 
 public enum GitHub{
     case token(username:String, password:String)
-    case userProfile(username:String)
-    case repos(username:String)
-    case repo(fullName:String)
-    case issues(repositoryFullName:String)
+    case repoSearch(query: String)
+    case trendingReposSinceLastWeek
+    case repo(owner: String, repoName: String)
+    case repoReadMe(owner: String, repoName: String)
+    case pulls(onwer: String, repo: String)
+    case issues(onwer: String, repo: String)
+    case commits(onwer: String, repo: String)
 }
 
 private extension String{
@@ -37,14 +40,19 @@ extension GitHub: TargetType{
         switch self {
         case .token(_, _):
             return "/authorizations"
-        case .issues(let repositoryFullName):
-            return "/repos/\(repositoryFullName)/issues"
-        case .userProfile(let name):
-            return "/users\(name.URLEscapedString)"
-        case .repos(let name):
-            return "/users/\(name.URLEscapedString)/repos"
-        case .repo(let name):
-            return "/repos/\(name)"
+        case .repoSearch(_),
+             .trendingReposSinceLastWeek:
+            return "/search/repositories"
+        case .repo(let owner, let repoName):
+            return "/repos\(owner)/\(repoName)"
+        case .repoReadMe(let owner, let repoName):
+            return "/repos\(owner)/\(repoName)/readme"
+        case .pulls(let owner, let repo):
+            return "/repos\(owner)/\(repo)/pulls"
+        case .issues(let owner, let repo):
+            return "/repos\(owner)/\(repo)/issues"
+        case .commits(let owner, let repo):
+            return "/repos\(owner)/\(repo)/commits"
         }
     }
     
@@ -52,7 +60,13 @@ extension GitHub: TargetType{
         switch self {
         case .token(_, _):
             return .post
-        default:
+        case .repoSearch(_),
+             .trendingReposSinceLastWeek,
+             .repo(_,_),
+             .repoReadMe(_,_),
+             .pulls(_,_),
+             .issues(_,_),
+             .commits(_,_):
             return .get
         }
     }
@@ -79,14 +93,20 @@ extension GitHub: TargetType{
         switch self {
         case .token(_, _):
             return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
-        case .repos(_):
-            return "}".data(using: .utf8)!
-        case .userProfile(let name):
-            return "{\"login\": \"\(name)\", \"id\": 100}".data(using: .utf8)!
-        case .repo(_):
-            return "{\"id\": \"1\", \"language\": \"Swift\", \"url\": \"https://api.github.com/repos/mjacko/Router\", \"name\": \"Router\"}".data(using: .utf8)!
-        case .issues(_):
-            return "{\"id\": 132942471, \"number\": 405, \"title\": \"Updates example with fix to String extension by changing to Optional\", \"body\": \"Fix it pls.\"}".data(using: .utf8)!
+        case .repoSearch(_):
+            return StubResponse.fromJSONFile("SearchResponse")
+        case .trendingReposSinceLastWeek:
+            return StubResponse.fromJSONFile("SearchResponse")
+        case .repo(_,_):
+            return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
+        case .repoReadMe(_,_):
+            return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
+        case .pulls(_,_):
+            return "[{\"title\": \"Avatar\", \"user\": { \"login\": \"me\" }, \"createdAt\": \"2011-01-26T19:01:12Z\" }]".data(using: String.Encoding.utf8)!
+        case .issues(_,_):
+            return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
+        case .commits(_,_):
+            return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
             
         }
     }
@@ -97,9 +117,23 @@ extension GitHub: TargetType{
             let params = ["scopes":["public_repo", "user"], "note": "BlogUploader iOS app (\(Date()))"] as [String : Any]
             
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
-        default:
+        case .repo(_,_),
+             .repoReadMe(_,_),
+             .pulls,
+             .issues,
+             .commits:
             return .requestPlain
+        case .repoSearch(let query):
+            let params = ["q": query.URLEscapedString as AnyObject]
+            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+        case .trendingReposSinceLastWeek:
+            let params = ["q" : "created:>" + Date().lastWeek(),
+                    "sort" : "stars",
+                    "order" : "desc"]
+             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         }
+        
+     
     }
 }
 
