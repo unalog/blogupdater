@@ -7,13 +7,30 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import Moya
 
-class MainViewController: UITableViewController {
+class MainViewController: UIViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var tableView: UITableView!
+    
+    let disposeBag = DisposeBag()
+    var provider : MoyaProvider<GitHub>!
+    var lastestRepositiryName:Observable<String>{
+        
+        return searchBar.rx.text.orEmpty
+            .debounce(0.5, scheduler:MainScheduler.instance)
+            .distinctUntilChanged()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        setupRx()
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,5 +58,16 @@ class MainViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func setupRx() {
+        provider = MoyaProvider<GitHub>()
+        
+        tableView.rx.itemSelected.asObservable()
+            .subscribe(onNext: { indexPath in
+                if self.searchBar.isFirstResponder == true{
+                    self.view.endEditing(true)
+                }
+            }).disposed(by: disposeBag)
+    }
 
 }

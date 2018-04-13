@@ -10,38 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
-        <scene sceneID="hjK-bo-2f7">
-            <objects>
-                <tableViewController id="vSr-Z7-19i" customClass="MainViewController" customModule="blogupdater" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="O9E-s9-Bk7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="GLS-3T-11t">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GLS-3T-11t" id="e6w-ll-aqW">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="vSr-Z7-19i" id="ZS0-eN-uWh"/>
-                            <outlet property="delegate" destination="vSr-Z7-19i" id="Tc9-6K-nxy"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Evf-2Z-GiY"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="showLogin" id="usH-E7-uDd"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cXz-Ks-U6F" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-577" y="103"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="iik-PX-zVv">
             <objects>
@@ -51,12 +19,55 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="vSr-Z7-19i" kind="relationship" relationship="rootViewController" id="MA0-RI-7da"/>
+                        <segue destination="Ytk-7o-oT0" kind="relationship" relationship="rootViewController" id="b68-3f-LXI"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lxm-JG-HE2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1529" y="103"/>
+        </scene>
+        <!--Main View Controller-->
+        <scene sceneID="8oq-q5-1ra">
+            <objects>
+                <viewController id="Ytk-7o-oT0" customClass="MainViewController" customModule="blogupdater" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jUk-wT-go0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="YOp-F8-A33">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="56" id="gmz-3J-Clj"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IPa-86-n0X">
+                                <rect key="frame" x="0.0" y="120" width="375" height="547"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YOp-F8-A33" firstAttribute="leading" secondItem="Kjf-3v-omp" secondAttribute="leading" id="7Tk-Fj-QGQ"/>
+                            <constraint firstItem="YOp-F8-A33" firstAttribute="trailing" secondItem="Kjf-3v-omp" secondAttribute="trailing" id="I72-rF-UGH"/>
+                            <constraint firstItem="IPa-86-n0X" firstAttribute="bottom" secondItem="Kjf-3v-omp" secondAttribute="bottom" id="JLq-ST-aqv"/>
+                            <constraint firstItem="IPa-86-n0X" firstAttribute="trailing" secondItem="Kjf-3v-omp" secondAttribute="trailing" id="Lme-oQ-Ofo"/>
+                            <constraint firstItem="IPa-86-n0X" firstAttribute="leading" secondItem="Kjf-3v-omp" secondAttribute="leading" id="X8W-Dp-Axh"/>
+                            <constraint firstItem="IPa-86-n0X" firstAttribute="top" secondItem="YOp-F8-A33" secondAttribute="bottom" id="aJV-FQ-3Eh"/>
+                            <constraint firstItem="YOp-F8-A33" firstAttribute="top" secondItem="Kjf-3v-omp" secondAttribute="top" id="fG1-yc-Pou"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kjf-3v-omp"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="u69-Bj-BlO"/>
+                    <connections>
+                        <outlet property="searchBar" destination="YOp-F8-A33" id="LYz-9f-2rM"/>
+                        <outlet property="tableView" destination="IPa-86-n0X" id="abE-WX-qiJ"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="showLogin" id="5No-8V-NtZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Go-pv-l6d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-791.20000000000005" y="100.29985007496252"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">

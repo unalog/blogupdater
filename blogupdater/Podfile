@@ -11,4 +11,5 @@ target 'blogupdater' do
  pod 'RxCocoa'
  pod 'SwiftyJSON'
  pod 'Moya/RxSwift'
+ 
 end

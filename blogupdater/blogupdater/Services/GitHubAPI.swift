@@ -13,6 +13,16 @@ import RxSwift
 
 public enum GitHub{
     case token(username:String, password:String)
+    case userProfile(username:String)
+    case repos(username:String)
+    case repo(fullName:String)
+    case issues(repositoryFullName:String)
+}
+
+private extension String{
+    var URLEscapedString:String{
+        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+    }
 }
 
 let GitHubProvider = MoyaProvider<GitHub>(endpointClosure: endpointClosure, plugins: [NetworkLoggerPlugin(verbose: true)])
@@ -27,7 +37,14 @@ extension GitHub: TargetType{
         switch self {
         case .token(_, _):
             return "/authorizations"
-        
+        case .issues(let repositoryFullName):
+            return "/repos/\(repositoryFullName)/issues"
+        case .userProfile(let name):
+            return "/users\(name.URLEscapedString)"
+        case .repos(let name):
+            return "/users/\(name.URLEscapedString)/repos"
+        case .repo(let name):
+            return "/repos/\(name)"
         }
     }
     
@@ -35,6 +52,8 @@ extension GitHub: TargetType{
         switch self {
         case .token(_, _):
             return .post
+        default:
+            return .get
         }
     }
     public var headers: [String : String]? {
@@ -60,6 +79,15 @@ extension GitHub: TargetType{
         switch self {
         case .token(_, _):
             return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
+        case .repos(_):
+            return "}".data(using: .utf8)!
+        case .userProfile(let name):
+            return "{\"login\": \"\(name)\", \"id\": 100}".data(using: .utf8)!
+        case .repo(_):
+            return "{\"id\": \"1\", \"language\": \"Swift\", \"url\": \"https://api.github.com/repos/mjacko/Router\", \"name\": \"Router\"}".data(using: .utf8)!
+        case .issues(_):
+            return "{\"id\": 132942471, \"number\": 405, \"title\": \"Updates example with fix to String extension by changing to Optional\", \"body\": \"Fix it pls.\"}".data(using: .utf8)!
+            
         }
     }
     
@@ -83,8 +111,4 @@ var endpointClosure = {( target:GitHub) -> Endpoint in
     return endpoint
 }
 
-private extension String{
-    var URLEscapedString:String{
-        return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-    }
-}
+

@@ -1,5 +1,5 @@
 //
-//  Repository.swift
+//  StubResponse.swift
 //  blogupdater
 //
 //  Created by una on 2018. 4. 13..
@@ -8,6 +8,6 @@
 
 import UIKit
 
-class Repository: Mapper {
+class StubResponse: Any {
 
 }
