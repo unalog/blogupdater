@@ -27,6 +27,8 @@
 		B551DF74208478D300D5CAED /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B551DF73208478D300D5CAED /* Issue.swift */; };
 		B551DF7620847A5500D5CAED /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B551DF7520847A5500D5CAED /* Commit.swift */; };
 		B551DF7820847E1100D5CAED /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B551DF7720847E1100D5CAED /* SafariServices.framework */; };
+		B551DF7A208485E700D5CAED /* MyRepositorysViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B551DF79208485E700D5CAED /* MyRepositorysViewController.swift */; };
+		B551DF7C2084860C00D5CAED /* MyRepositorysViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B551DF7B2084860C00D5CAED /* MyRepositorysViewModel.swift */; };
 		B58C5893207F2BE4008FBCC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C5892207F2BE4008FBCC1 /* AppDelegate.swift */; };
 		B58C5898207F2BE4008FBCC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58C5896207F2BE4008FBCC1 /* Main.storyboard */; };
 		B58C589A207F2BE5008FBCC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B58C5899207F2BE5008FBCC1 /* Assets.xcassets */; };
@@ -59,6 +61,8 @@
 		B551DF73208478D300D5CAED /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		B551DF7520847A5500D5CAED /* Commit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 		B551DF7720847E1100D5CAED /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		B551DF79208485E700D5CAED /* MyRepositorysViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRepositorysViewController.swift; sourceTree = "<group>"; };
+		B551DF7B2084860C00D5CAED /* MyRepositorysViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRepositorysViewModel.swift; sourceTree = "<group>"; };
 		B58C588F207F2BE4008FBCC1 /* blogupdater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blogupdater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58C5892207F2BE4008FBCC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B58C5897207F2BE4008FBCC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -185,6 +189,7 @@
 				B58C58A5207F30E9008FBCC1 /* LoginViewController.swift */,
 				B5044E0F20803F270020C56C /* MainViewController.swift */,
 				B551DF6D2084650700D5CAED /* RepositoryViewController.swift */,
+				B551DF79208485E700D5CAED /* MyRepositorysViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				B5044E26208088310020C56C /* MainViewModel.swift */,
 				B5044E322080917D0020C56C /* RepoCellViewModel.swift */,
 				B551DF6B2084626100D5CAED /* RepositoryViewModel.swift */,
+				B551DF7B2084860C00D5CAED /* MyRepositorysViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -340,6 +346,7 @@
 				B5044E1420804AF40020C56C /* NetworkingLoggerPlaugin.swift in Sources */,
 				B551DF74208478D300D5CAED /* Issue.swift in Sources */,
 				B5044E362080933E0020C56C /* RepoCell.swift in Sources */,
+				B551DF7C2084860C00D5CAED /* MyRepositorysViewModel.swift in Sources */,
 				B5044E3120808EFB0020C56C /* Owner.swift in Sources */,
 				B5044E1020803F270020C56C /* MainViewController.swift in Sources */,
 				B551DF6E2084650700D5CAED /* RepositoryViewController.swift in Sources */,
@@ -349,6 +356,7 @@
 				B5044E1B2080812B0020C56C /* Decodable.swift in Sources */,
 				B5044E2F20808E3F0020C56C /* NSDate.swift in Sources */,
 				B551DF722084758800D5CAED /* PullRequest.swift in Sources */,
+				B551DF7A208485E700D5CAED /* MyRepositorysViewController.swift in Sources */,
 				B58C58A6207F30E9008FBCC1 /* LoginViewController.swift in Sources */,
 				B58C5893207F2BE4008FBCC1 /* AppDelegate.swift in Sources */,
 				B551DF6C2084626100D5CAED /* RepositoryViewModel.swift in Sources */,
