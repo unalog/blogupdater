@@ -19,7 +19,7 @@ enum MainViewModelResult {
 
 class MainViewModel {
 
-    var searchText = Variable("")
+    var searchText = BehaviorRelay(value:"")
     var selectedItem = PublishSubject<IndexPath>()
     
     let results : Driver<MainViewModelResult>
@@ -27,15 +27,15 @@ class MainViewModel {
     let selectedViewModel : Observable<RepositoryViewModel>
     let title = "Search"
     
-    fileprivate let repoModels : Variable<[Repo]>
+    fileprivate let repoModels : BehaviorRelay<[Repo]>
     fileprivate let provider : MoyaProvider<GitHub>
     
     init(provider : MoyaProvider<GitHub>) {
         
         self.provider = provider
         
-        self.executing = Variable(false).asDriver().distinctUntilChanged()
-        let repoModels = Variable<[Repo]>([])
+        self.executing = BehaviorRelay(value:false).asDriver().distinctUntilChanged()
+        let repoModels = BehaviorRelay<[Repo]>(value:[])
         self.repoModels = repoModels
         
         let searchTextObservable = searchText.asObservable()
@@ -47,7 +47,7 @@ class MainViewModel {
                     .observeOn(MainScheduler.instance)
             }.mapToModels(Repo.self, arrayRootKey: "items")
             .do(onNext: { (models) in
-                repoModels.value = models
+                repoModels.accept(models)
             })
             .mapToRepoCellViewModel()
             .map { (viewModels) -> MainViewModelResult in

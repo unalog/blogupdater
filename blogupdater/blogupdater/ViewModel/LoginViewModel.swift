@@ -14,8 +14,8 @@ import SwiftyJSON
 
 class LoginViewModel {
     
-    var username = Variable("")
-    var password = Variable("")
+    var username = BehaviorRelay(value: "")
+    var password = BehaviorRelay(value: "")
     
     var loginTaps = PublishSubject<Void>()
     
@@ -28,7 +28,7 @@ class LoginViewModel {
     init(provider:MoyaProvider<GitHub>) {
         self.provider = provider
     
-        loginExecuting = Variable(false).asDriver().distinctUntilChanged()
+        loginExecuting = BehaviorRelay(value:false).asDriver().distinctUntilChanged()
         
         let usernameObservable = username.asObservable()
         let passwordObservable = password.asObservable()
