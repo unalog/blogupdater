@@ -47,19 +47,28 @@ class MainViewController: UIViewController {
 
         //performSegue(withIdentifier: "showLogin", sender: self)
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "goRepository"{
+            
+            let vc = segue.destination as! RepositoryViewController
+            vc.viewModel = sender as? RepositoryViewModel
+            
+        }
     }
-    */
+ 
     
     func bindToRx() {
         title = viewModel.title
         searchBar.rx.text.orEmpty.bind(to: viewModel.searchText).disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected.bind(to: viewModel.selectedItem).disposed(by: disposeBag)
         
         viewModel.results.drive(onNext: { (result) in
             switch result{
@@ -75,6 +84,9 @@ class MainViewController: UIViewController {
         
         viewModel.executing.drive(UIApplication.shared.rx.isNetworkActivityIndicatorVisible ).disposed(by: disposeBag)
         
+        viewModel.selectedViewModel.subscribe(onNext: { [weak self] viewModel in
+            self?.performSegue(withIdentifier: "goRepository", sender: viewModel)
+        }).disposed(by: disposeBag)
     }
     
 
@@ -96,4 +108,6 @@ extension MainViewController:UITableViewDataSource{
         return cell
     }
 }
+
+
 

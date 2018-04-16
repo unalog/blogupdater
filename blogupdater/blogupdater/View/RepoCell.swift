@@ -40,7 +40,7 @@ class RepoCell: UITableViewCell {
 }
 
 extension Observable{
-    func maptoRepoCellViewModel() -> Observable<[RepoCellViewModel]> {
+    func mapToRepoCellViewModel() -> Observable<[RepoCellViewModel]> {
         return self.map{ repos in
             if let repos = repos as? [Repo]{
                 return repos.map{return RepoCellViewModel(repo: $0)}

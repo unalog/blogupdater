@@ -53,14 +53,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="110.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMX-Ci-vEk">
-                                                    <rect key="frame" x="15" y="11" width="345" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMX-Ci-vEk">
+                                                    <rect key="frame" x="15" y="11" width="345" height="17.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZf-bA-sX1">
-                                                    <rect key="frame" x="15" y="38" width="345" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZf-bA-sX1">
+                                                    <rect key="frame" x="15" y="38.5" width="345" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -103,8 +103,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="Ytk-7o-oT0" id="vbU-RB-5q6"/>
-                                    <outlet property="delegate" destination="Ytk-7o-oT0" id="jzu-eC-hLZ"/>
+                                    <outlet property="dataSource" destination="Ytk-7o-oT0" id="XTk-pH-d7q"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -125,11 +124,27 @@
                         <outlet property="searchBar" destination="YOp-F8-A33" id="LYz-9f-2rM"/>
                         <outlet property="tableView" destination="IPa-86-n0X" id="abE-WX-qiJ"/>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="showLogin" id="5No-8V-NtZ"/>
+                        <segue destination="uou-bB-sAP" kind="show" identifier="goRepository" id="VLT-76-xnh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Go-pv-l6d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-791.20000000000005" y="100.29985007496252"/>
+        </scene>
+        <!--Repository View Controller-->
+        <scene sceneID="nj2-yS-bdl">
+            <objects>
+                <viewController id="uou-bB-sAP" customClass="RepositoryViewController" customModule="blogupdater" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zYS-DU-XZZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Zcy-vp-uox"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O5e-uJ-0ht" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-82" y="99"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">

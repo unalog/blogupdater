@@ -7,7 +7,13 @@
 //
 
 import UIKit
+import Moya
+import RxSwift
 
-class RepositoryViewModel: Any {
+class RepositoryViewModel {
 
+    
+    init(provider:MoyaProvider<GitHub>, repo:Repo) {
+        
+    }
 }

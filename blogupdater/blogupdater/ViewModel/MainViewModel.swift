@@ -24,6 +24,7 @@ class MainViewModel {
     
     let results : Driver<MainViewModelResult>
     let executing : Driver<Bool>
+    let selectedViewModel : Observable<RepositoryViewModel>
     let title = "Search"
     
     fileprivate let repoModels : Variable<[Repo]>
@@ -39,8 +40,8 @@ class MainViewModel {
         
         let searchTextObservable = searchText.asObservable()
         let queryResultsObservable = searchTextObservable.throttle(0.3, scheduler: MainScheduler.instance)
-            .filter { $0.count > 0
-            }.flatMapLatest { query in
+            .filter { $0.count > 0 }
+            .flatMapLatest { query in
                 provider.rx.request(GitHub.repoSearch(query: query))
                     .retry(3)
                     .observeOn(MainScheduler.instance)
@@ -48,7 +49,7 @@ class MainViewModel {
             .do(onNext: { (models) in
                 repoModels.value = models
             })
-            .maptoRepoCellViewModel()
+            .mapToRepoCellViewModel()
             .map { (viewModels) -> MainViewModelResult in
                 viewModels.isEmpty ? .queryNothingFound : .query(viewModels)
                 
@@ -60,6 +61,13 @@ class MainViewModel {
         }.asDriver(onErrorJustReturn: .empty)
         
         results = Driver.of(queryResultsObservable,noResultsObservable).merge()
+        
+        selectedViewModel = selectedItem.withLatestFrom(repoModels.asObservable()){ indexPath, models in
+            models[indexPath.row]
+            }.map{model in
+                RepositoryViewModel(provider: provider, repo: model)
+            }.share(replay: 1, scope: .whileConnected)
+        
         
     }
 }

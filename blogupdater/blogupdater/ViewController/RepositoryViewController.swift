@@ -10,6 +10,8 @@ import UIKit
 
 class RepositoryViewController: UIViewController {
 
+    var viewModel :RepositoryViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

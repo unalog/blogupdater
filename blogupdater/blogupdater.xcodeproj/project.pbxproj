@@ -21,6 +21,8 @@
 		B5044E3120808EFB0020C56C /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5044E3020808EFB0020C56C /* Owner.swift */; };
 		B5044E332080917D0020C56C /* RepoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5044E322080917D0020C56C /* RepoCellViewModel.swift */; };
 		B5044E362080933E0020C56C /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5044E352080933E0020C56C /* RepoCell.swift */; };
+		B551DF6C2084626100D5CAED /* RepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B551DF6B2084626100D5CAED /* RepositoryViewModel.swift */; };
+		B551DF6E2084650700D5CAED /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B551DF6D2084650700D5CAED /* RepositoryViewController.swift */; };
 		B58C5893207F2BE4008FBCC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C5892207F2BE4008FBCC1 /* AppDelegate.swift */; };
 		B58C5898207F2BE4008FBCC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58C5896207F2BE4008FBCC1 /* Main.storyboard */; };
 		B58C589A207F2BE5008FBCC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B58C5899207F2BE5008FBCC1 /* Assets.xcassets */; };
@@ -47,6 +49,8 @@
 		B5044E3020808EFB0020C56C /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		B5044E322080917D0020C56C /* RepoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellViewModel.swift; sourceTree = "<group>"; };
 		B5044E352080933E0020C56C /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
+		B551DF6B2084626100D5CAED /* RepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewModel.swift; sourceTree = "<group>"; };
+		B551DF6D2084650700D5CAED /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		B58C588F207F2BE4008FBCC1 /* blogupdater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blogupdater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58C5892207F2BE4008FBCC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B58C5897207F2BE4008FBCC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 			children = (
 				B58C58A5207F30E9008FBCC1 /* LoginViewController.swift */,
 				B5044E0F20803F270020C56C /* MainViewController.swift */,
+				B551DF6D2084650700D5CAED /* RepositoryViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 				B58C58AA207F338F008FBCC1 /* LoginResult.swift */,
 				B5044E26208088310020C56C /* MainViewModel.swift */,
 				B5044E322080917D0020C56C /* RepoCellViewModel.swift */,
+				B551DF6B2084626100D5CAED /* RepositoryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -322,12 +328,14 @@
 				B5044E362080933E0020C56C /* RepoCell.swift in Sources */,
 				B5044E3120808EFB0020C56C /* Owner.swift in Sources */,
 				B5044E1020803F270020C56C /* MainViewController.swift in Sources */,
+				B551DF6E2084650700D5CAED /* RepositoryViewController.swift in Sources */,
 				B58C58AB207F338F008FBCC1 /* LoginResult.swift in Sources */,
 				B5044E27208088310020C56C /* MainViewModel.swift in Sources */,
 				B5044E1B2080812B0020C56C /* Decodable.swift in Sources */,
 				B5044E2F20808E3F0020C56C /* NSDate.swift in Sources */,
 				B58C58A6207F30E9008FBCC1 /* LoginViewController.swift in Sources */,
 				B58C5893207F2BE4008FBCC1 /* AppDelegate.swift in Sources */,
+				B551DF6C2084626100D5CAED /* RepositoryViewModel.swift in Sources */,
 				B5044E1D208081D30020C56C /* Decodeable_Rx.swift in Sources */,
 				B5044E2A20808D3A0020C56C /* StubResponse.swift in Sources */,
 				B58C58B0207F37D0008FBCC1 /* Token.swift in Sources */,
