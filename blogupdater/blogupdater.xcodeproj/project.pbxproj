@@ -19,6 +19,8 @@
 		B5044E2C20808D670020C56C /* searchResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = B5044E2B20808D670020C56C /* searchResponse.json */; };
 		B5044E2F20808E3F0020C56C /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5044E2E20808E3F0020C56C /* NSDate.swift */; };
 		B5044E3120808EFB0020C56C /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5044E3020808EFB0020C56C /* Owner.swift */; };
+		B5044E332080917D0020C56C /* RepoCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5044E322080917D0020C56C /* RepoCellViewModel.swift */; };
+		B5044E362080933E0020C56C /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5044E352080933E0020C56C /* RepoCell.swift */; };
 		B58C5893207F2BE4008FBCC1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C5892207F2BE4008FBCC1 /* AppDelegate.swift */; };
 		B58C5898207F2BE4008FBCC1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B58C5896207F2BE4008FBCC1 /* Main.storyboard */; };
 		B58C589A207F2BE5008FBCC1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B58C5899207F2BE5008FBCC1 /* Assets.xcassets */; };
@@ -43,6 +45,8 @@
 		B5044E2B20808D670020C56C /* searchResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = searchResponse.json; sourceTree = "<group>"; };
 		B5044E2E20808E3F0020C56C /* NSDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		B5044E3020808EFB0020C56C /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		B5044E322080917D0020C56C /* RepoCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellViewModel.swift; sourceTree = "<group>"; };
+		B5044E352080933E0020C56C /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		B58C588F207F2BE4008FBCC1 /* blogupdater.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blogupdater.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B58C5892207F2BE4008FBCC1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B58C5897207F2BE4008FBCC1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -113,6 +117,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		B5044E342080932E0020C56C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B5044E352080933E0020C56C /* RepoCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		B58C5886207F2BE4008FBCC1 = {
 			isa = PBXGroup;
 			children = (
@@ -134,10 +146,11 @@
 		B58C5891207F2BE4008FBCC1 /* blogupdater */ = {
 			isa = PBXGroup;
 			children = (
+				B5044E342080932E0020C56C /* View */,
+				B58C58AC207F35F7008FBCC1 /* Services */,
 				B5044E2D20808E270020C56C /* Extensions */,
 				B5044E2820808D1E0020C56C /* Helper */,
 				B5044E1720807FD30020C56C /* Model */,
-				B58C58AC207F35F7008FBCC1 /* Services */,
 				B58C58A7207F3295008FBCC1 /* ViewModel */,
 				B58C58A4207F30D1008FBCC1 /* ViewController */,
 				B58C5892207F2BE4008FBCC1 /* AppDelegate.swift */,
@@ -164,6 +177,7 @@
 				B58C58A8207F32FB008FBCC1 /* LoginViewModel.swift */,
 				B58C58AA207F338F008FBCC1 /* LoginResult.swift */,
 				B5044E26208088310020C56C /* MainViewModel.swift */,
+				B5044E322080917D0020C56C /* RepoCellViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -305,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5044E1420804AF40020C56C /* NetworkingLoggerPlaugin.swift in Sources */,
+				B5044E362080933E0020C56C /* RepoCell.swift in Sources */,
 				B5044E3120808EFB0020C56C /* Owner.swift in Sources */,
 				B5044E1020803F270020C56C /* MainViewController.swift in Sources */,
 				B58C58AB207F338F008FBCC1 /* LoginResult.swift in Sources */,
@@ -319,6 +334,7 @@
 				B58C58AE207F360A008FBCC1 /* GitHubAPI.swift in Sources */,
 				B5044E1F208082520020C56C /* GithubError.swift in Sources */,
 				B58C58A9207F32FB008FBCC1 /* LoginViewModel.swift in Sources */,
+				B5044E332080917D0020C56C /* RepoCellViewModel.swift in Sources */,
 				B5044E1920807FF00020C56C /* Repo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
