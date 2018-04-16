@@ -125,12 +125,12 @@ extension GitHub: TargetType{
             return .requestPlain
         case .repoSearch(let query):
             let params = ["q": query.URLEscapedString as AnyObject]
-            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .trendingReposSinceLastWeek:
             let params = ["q" : "created:>" + Date().lastWeek(),
                     "sort" : "stars",
                     "order" : "desc"]
-             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         }
         
      
