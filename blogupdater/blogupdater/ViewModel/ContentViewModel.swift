@@ -35,10 +35,7 @@ class ContentViewModel {
             .map{
                 $0.filter({ content -> Bool in
                     if content.type == "dir"{
-                        if content.name == "public" , path == ""{
-                            return false
-                        }
-                        else  if content.name == "css" , path == ""{
+                       if content.name == "css" , path == ""{
                             return false
                         }
                         else if content.name == "_posts" {
@@ -55,7 +52,19 @@ class ContentViewModel {
                         }
                     }
                     else if content.type == "file"{
-                        return content.name.hasSuffix(".md")
+                        if content.name.hasSuffix(".md"){
+                            return true
+                        }
+                        else if content.name.hasSuffix(".png"){
+                            return true
+                        }
+                        else if content.name.hasSuffix(".jpg"){
+                            return true
+                        }
+                        else if content.name.hasSuffix(".gif"){
+                            return true
+                        }
+                        return false
                     }
                     else{
                         return false
@@ -70,13 +79,13 @@ class ContentViewModel {
         }
         
         selectDirViewMode = selectViewMode.filter({ (vm) -> Bool in
-            return !vm.path.hasSuffix(".md")
+            return vm.type == "dir"
         }).map({ (contentViewCell) -> ContentViewModel in
             return ContentViewModel(provider: provider, repo: repo, path: contentViewCell.path)
         })
         
         selectFileViewModel = selectViewMode.filter({ (vm) -> Bool in
-            return vm.path.hasSuffix("md")
+             return vm.type == "file"
         }).map({ (contentViewCell) -> ContentViewCell in
             return ContentViewCell(type: contentViewCell.type, name: contentViewCell.name, path: contentViewCell.path, url: contentViewCell.url)
         })
