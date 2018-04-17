@@ -52,8 +52,12 @@ class ContentViewController: UIViewController {
         self.title = vm.title
         
         vm.dataObserver.drive(onNext: { [weak self] datas in
+            
+            print(datas)
+            
             self?.dataSource = datas
             self?.tableView.reloadData()
+            
         }).disposed(by: disposeBag)
         
     }

@@ -27,14 +27,20 @@ class ContentViewModel {
     
          let readMe = provider.rx.request(GitHub.readMe(owner: repo.owner.name, repo: repo.fullName))
             .asObservable()
-            .mapToModels(ReadMe.self)
+            .mapToModel(ReadMe.self)
             .mapToContentViewCell()
             .asDriver(onErrorJustReturn: [])
         
         
-            
-            
-        dataObserver = readMe
+        
+          let contents = provider.rx.request(GitHub.contents(owner: repo.owner.name, repo: repo.fullName, path: ""))
+            .asObservable()
+            .mapToModels(Content.self)
+            .mapToContentViewCell()
+            .asDriver(onErrorJustReturn: [])
+        
+        
+        dataObserver = Driver.of(readMe,contents).merge()
         
     }
 }
@@ -44,14 +50,18 @@ struct ContentViewCell {
     let type:String
     let name:String
     let path:String
+    let url:String
 }
 
 extension Observable{
     
     func mapToContentViewCell() -> Observable<[ContentViewCell]> {
         return self.map{ data  in
-            if let data = data as? [ReadMe] {
-                return data.map{ return ContentViewCell(type: $0.type, name: $0.name, path: $0.path) }
+            if let data = data as? ReadMe {
+                return [ContentViewCell(type: data.type, name: data.name, path: data.path , url : data.htmlUrl) ]
+            }
+            else if let data = data as? [Content] {
+                return data.map{ContentViewCell(type: $0.type, name: $0.name, path: $0.path, url : $0.htmlUrl)}
             }
             else{
                 return []

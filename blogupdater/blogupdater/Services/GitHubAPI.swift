@@ -22,6 +22,7 @@ public enum GitHub{
     case commits(owner: String, repo: String)
     case myRepos
     case readMe(owner:String, repo:String)
+    case contents(owner:String, repo:String, path:String)
 }
 
 private extension String{
@@ -59,6 +60,9 @@ extension GitHub: TargetType{
             return "/user/repos"
         case .readMe(let owner, let repo):
             return "/repos\(owner)/\(repo)/readme"
+        case .contents(let owner, let repo, let path):
+            return "repos\(owner)/\(repo)/contents/\(path)"
+            
         }
     }
     
@@ -74,7 +78,9 @@ extension GitHub: TargetType{
              .issues(_,_),
              .commits(_,_),
              .myRepos,
-             .readMe(_,_):
+             .readMe(_,_),
+             .contents(_, _, _):
+        
             
             
             return .get
@@ -119,7 +125,8 @@ extension GitHub: TargetType{
             return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
         case .myRepos:
             return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
-        case .readMe(_, _):
+        case .readMe(_, _),
+             .contents(_,_,_):
             return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
             
         }
@@ -146,8 +153,11 @@ extension GitHub: TargetType{
                     "sort" : "stars",
                     "order" : "desc"]
              return .requestParameters(parameters: params, encoding: URLEncoding.default)
-        case .readMe(_, repo: _):
+        case .readMe(_, _):
             let params = ["ref":"master"]
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        case .contents(_, _, let path):
+            let params=["path":path,"ref":"master"]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         }
         
