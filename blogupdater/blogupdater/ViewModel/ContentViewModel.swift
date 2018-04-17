@@ -23,6 +23,7 @@ class ContentViewModel {
     
     let selectIndex = PublishSubject<IndexPath>()
     let selectDirViewMode : Observable<ContentViewModel>
+    let selectFileViewModel : Observable<ContentViewCell>
     
     init(provider:MoyaProvider<GitHub>, repo:Repo, path:String) {
         self.provider = provider
@@ -53,18 +54,33 @@ class ContentViewModel {
                             return true
                         }
                     }
-                    else{
+                    else if content.type == "file"{
                         return content.name.hasSuffix(".md")
+                    }
+                    else{
+                        return false
                     }
                 })
             }
             .mapToContentViewCell()
             .asDriver(onErrorJustReturn: [])
         
-        selectDirViewMode = selectIndex.withLatestFrom(dataObserver) { (indexPath, contents) -> ContentViewModel in
-            let item = contents[indexPath.row]
-             return ContentViewModel(provider: provider, repo:repo, path:item.path)
+        let selectViewMode = selectIndex.withLatestFrom(dataObserver) { (indexPath, contents) -> ContentViewCell in
+            contents[indexPath.row]
         }
+        
+        selectDirViewMode = selectViewMode.filter({ (vm) -> Bool in
+            return !vm.path.hasSuffix(".md")
+        }).map({ (contentViewCell) -> ContentViewModel in
+            return ContentViewModel(provider: provider, repo: repo, path: contentViewCell.path)
+        })
+        
+        selectFileViewModel = selectViewMode.filter({ (vm) -> Bool in
+            return vm.path.hasSuffix("md")
+        }).map({ (contentViewCell) -> ContentViewCell in
+            return ContentViewCell(type: contentViewCell.type, name: contentViewCell.name, path: contentViewCell.path, url: contentViewCell.url)
+        })
+        
     }
 }
 

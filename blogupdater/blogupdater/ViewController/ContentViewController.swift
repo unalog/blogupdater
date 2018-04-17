@@ -10,6 +10,7 @@ import UIKit
 import Moya
 import RxCocoa
 import RxSwift
+import SafariServices
 
 class ContentViewController: UIViewController {
 
@@ -63,6 +64,12 @@ class ContentViewController: UIViewController {
             vc.viewModel = data
             self?.navigationController?.pushViewController(vc, animated: true)
             
+        }).disposed(by: disposeBag)
+        
+        vm.selectFileViewModel.subscribe(onNext: { [weak self] data in
+            
+            let safari = SFSafariViewController(url: URL(string:data.url)!)
+            self?.present(safari, animated: true, completion: nil)
         }).disposed(by: disposeBag)
     }
 }
