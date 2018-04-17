@@ -13,3 +13,15 @@ target 'blogupdater' do
  pod 'Moya/RxSwift'
  
 end
+
+target 'blogupdaterTests' do
+   
+   pod 'RxSwift'
+   pod 'RxCocoa'
+   pod 'SwiftyJSON'
+   pod 'Moya/RxSwift'
+   pod 'Quick'
+   pod 'Nimble'
+   pod 'RxBlocking'
+   
+end
