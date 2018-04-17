@@ -20,6 +20,7 @@ class ContentViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
+    @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,6 +71,12 @@ class ContentViewController: UIViewController {
             
             let safari = SFSafariViewController(url: URL(string:data.url)!)
             self?.present(safari, animated: true, completion: nil)
+        }).disposed(by: disposeBag)
+        
+        
+        vm.isMakeableDirectory.subscribe(onNext: { [weak self] isEnable in
+            
+            self?.addButton.isEnabled = isEnable
         }).disposed(by: disposeBag)
     }
 }

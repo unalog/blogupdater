@@ -354,7 +354,7 @@
             </objects>
             <point key="canvasLocation" x="276" y="921.58920539730138"/>
         </scene>
-        <!--Content View Controller-->
+        <!--Title-->
         <scene sceneID="7G2-fG-dr1">
             <objects>
                 <viewController storyboardIdentifier="ContentVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="clG-uv-Zi4" customClass="ContentViewController" customModule="blogupdater" customModuleProvider="target" sceneMemberID="viewController">
@@ -398,7 +398,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kes-dg-ru5"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="PR0-kr-qCM">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="lxc-NF-bKT"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addButton" destination="lxc-NF-bKT" id="xPs-iS-4Rg"/>
                         <outlet property="tableView" destination="2n0-Xa-CQv" id="85J-K6-3dQ"/>
                     </connections>
                 </viewController>

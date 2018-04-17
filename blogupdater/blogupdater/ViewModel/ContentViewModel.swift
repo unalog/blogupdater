@@ -25,6 +25,8 @@ class ContentViewModel {
     let selectDirViewMode : Observable<ContentViewModel>
     let selectFileViewModel : Observable<ContentViewCell>
     
+    let isMakeableDirectory : BehaviorRelay<Bool>
+    
     init(provider:MoyaProvider<GitHub>, repo:Repo, path:String) {
         self.provider = provider
         self.repo = repo
@@ -90,6 +92,8 @@ class ContentViewModel {
             return ContentViewCell(type: contentViewCell.type, name: contentViewCell.name, path: contentViewCell.path, url: contentViewCell.url)
         })
         
+        isMakeableDirectory = BehaviorRelay(value:true);
+        isMakeableDirectory.accept(path.hasSuffix("/_posts"))
     }
 }
 
