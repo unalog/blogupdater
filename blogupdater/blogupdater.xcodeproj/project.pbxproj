@@ -40,6 +40,7 @@
 		B58C58B0207F37D0008FBCC1 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C58AF207F37D0008FBCC1 /* Token.swift */; };
 		B5BE1F1A20858ADC00261119 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE1F1920858ADC00261119 /* ContentViewController.swift */; };
 		B5BE1F1C20858B4C00261119 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE1F1B20858B4C00261119 /* ContentViewModel.swift */; };
+		B5BE1F1E2085A83100261119 /* ReadMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE1F1D2085A83100261119 /* ReadMe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +79,7 @@
 		B58C58AF207F37D0008FBCC1 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		B5BE1F1920858ADC00261119 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		B5BE1F1B20858B4C00261119 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		B5BE1F1D2085A83100261119 /* ReadMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMe.swift; sourceTree = "<group>"; };
 		CEF5762421A36E519145C9DB /* Pods-blogupdater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blogupdater.release.xcconfig"; path = "Pods/Target Support Files/Pods-blogupdater/Pods-blogupdater.release.xcconfig"; sourceTree = "<group>"; };
 		FFE5E1B3585AF9443A63B497 /* Pods_blogupdater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blogupdater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -121,6 +123,7 @@
 				B551DF712084758800D5CAED /* PullRequest.swift */,
 				B551DF73208478D300D5CAED /* Issue.swift */,
 				B551DF7520847A5500D5CAED /* Commit.swift */,
+				B5BE1F1D2085A83100261119 /* ReadMe.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				B5044E362080933E0020C56C /* RepoCell.swift in Sources */,
 				B551DF7C2084860C00D5CAED /* MyRepositorysViewModel.swift in Sources */,
 				B5044E3120808EFB0020C56C /* Owner.swift in Sources */,
+				B5BE1F1E2085A83100261119 /* ReadMe.swift in Sources */,
 				B5BE1F1C20858B4C00261119 /* ContentViewModel.swift in Sources */,
 				B5044E1020803F270020C56C /* MainViewController.swift in Sources */,
 				B551DF6E2084650700D5CAED /* RepositoryViewController.swift in Sources */,

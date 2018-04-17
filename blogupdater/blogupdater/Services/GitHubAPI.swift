@@ -58,7 +58,7 @@ extension GitHub: TargetType{
         case .myRepos:
             return "/user/repos"
         case .readMe(let owner, let repo):
-            return "/repos/\(owner)/\(repo)/readme"
+            return "/repos\(owner)/\(repo)/readme"
         }
     }
     
