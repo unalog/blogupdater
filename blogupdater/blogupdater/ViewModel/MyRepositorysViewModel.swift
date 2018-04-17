@@ -49,7 +49,7 @@ class MyRepositorysViewModel {
         
         selectedViewModel = selectedItem.withLatestFrom(repoModels.asObservable(), resultSelector: { (indexPath, viewModes) -> ContentViewModel in
             
-            ContentViewModel(provider: provider, repo:viewModes[indexPath.row])
+            ContentViewModel(provider: provider, repo:viewModes[indexPath.row], path:"")
             
         })
         

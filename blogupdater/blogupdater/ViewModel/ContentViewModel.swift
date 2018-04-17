@@ -15,32 +15,50 @@ class ContentViewModel {
 
     let provider:MoyaProvider<GitHub>
     let repo:Repo
+    let path:String
     
     let title = "Blog Content"
     
     let dataObserver :Driver<[ContentViewCell]>
     
-    init(provider:MoyaProvider<GitHub>, repo:Repo) {
+    init(provider:MoyaProvider<GitHub>, repo:Repo, path:String) {
         self.provider = provider
         self.repo = repo
-    
-    
-         let readMe = provider.rx.request(GitHub.readMe(owner: repo.owner.name, repo: repo.fullName))
-            .asObservable()
-            .mapToModel(ReadMe.self)
-            .mapToContentViewCell()
-            .asDriver(onErrorJustReturn: [])
-        
-        
-        
-          let contents = provider.rx.request(GitHub.contents(owner: repo.owner.name, repo: repo.fullName, path: ""))
+        self.path = path
+          dataObserver = provider.rx.request(GitHub.contents(owner: repo.owner.name, repo: repo.fullName, path: path))
             .asObservable()
             .mapToModels(Content.self)
+            .map{
+                $0.filter({ content -> Bool in
+                    if content.type == "dir"{
+                        if content.name == "public" , path == ""{
+                            return false
+                        }
+                        else  if content.name == "css" , path == ""{
+                            return false
+                        }
+                        else if content.name.hasPrefix("."){
+                            return false
+                        }
+                        else if content.name.hasPrefix("_"){
+                            return false
+                        }
+                        else{
+                            return true
+                        }
+                    }
+                    else{
+                        return content.name.hasSuffix(".md")
+                    }
+                })
+            }
             .mapToContentViewCell()
             .asDriver(onErrorJustReturn: [])
         
         
-        dataObserver = Driver.of(readMe,contents).merge()
+        
+      
+        
         
     }
 }
@@ -57,10 +75,7 @@ extension Observable{
     
     func mapToContentViewCell() -> Observable<[ContentViewCell]> {
         return self.map{ data  in
-            if let data = data as? ReadMe {
-                return [ContentViewCell(type: data.type, name: data.name, path: data.path , url : data.htmlUrl) ]
-            }
-            else if let data = data as? [Content] {
+           if let data = data as? [Content] {
                 return data.map{ContentViewCell(type: $0.type, name: $0.name, path: $0.path, url : $0.htmlUrl)}
             }
             else{
