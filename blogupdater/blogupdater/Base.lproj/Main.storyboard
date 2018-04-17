@@ -357,7 +357,7 @@
         <!--Content View Controller-->
         <scene sceneID="7G2-fG-dr1">
             <objects>
-                <viewController id="clG-uv-Zi4" customClass="ContentViewController" customModule="blogupdater" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContentVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="clG-uv-Zi4" customClass="ContentViewController" customModule="blogupdater" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l9H-U0-OEQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

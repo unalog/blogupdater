@@ -52,14 +52,18 @@ class ContentViewController: UIViewController {
         self.title = vm.title
         
         vm.dataObserver.drive(onNext: { [weak self] datas in
-            
-            print(datas)
-            
             self?.dataSource = datas
             self?.tableView.reloadData()
-            
         }).disposed(by: disposeBag)
         
+        tableView.rx.itemSelected.bind(to:vm.selectIndex).disposed(by: disposeBag)
+        vm.selectDirViewMode.subscribe(onNext: { [weak self] data in
+            
+            let vc:ContentViewController = self?.storyboard?.instantiateViewController(withIdentifier: "ContentVC") as! ContentViewController
+            vc.viewModel = data
+            self?.navigationController?.pushViewController(vc, animated: true)
+            
+        }).disposed(by: disposeBag)
     }
 }
 

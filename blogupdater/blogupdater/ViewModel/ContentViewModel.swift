@@ -21,6 +21,9 @@ class ContentViewModel {
     
     let dataObserver :Driver<[ContentViewCell]>
     
+    let selectIndex = PublishSubject<IndexPath>()
+    let selectDirViewMode : Observable<ContentViewModel>
+    
     init(provider:MoyaProvider<GitHub>, repo:Repo, path:String) {
         self.provider = provider
         self.repo = repo
@@ -36,6 +39,9 @@ class ContentViewModel {
                         }
                         else  if content.name == "css" , path == ""{
                             return false
+                        }
+                        else if content.name == "_posts" {
+                            return true
                         }
                         else if content.name.hasPrefix("."){
                             return false
@@ -55,11 +61,10 @@ class ContentViewModel {
             .mapToContentViewCell()
             .asDriver(onErrorJustReturn: [])
         
-        
-        
-      
-        
-        
+        selectDirViewMode = selectIndex.withLatestFrom(dataObserver) { (indexPath, contents) -> ContentViewModel in
+            let item = contents[indexPath.row]
+             return ContentViewModel(provider: provider, repo:repo, path:item.path)
+        }
     }
 }
 
