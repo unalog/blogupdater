@@ -7,7 +7,17 @@
 //
 
 import UIKit
+import Moya
+import RxSwift
+import RxCocoa
 
-class ContentViewModel: Any {
+class ContentViewModel {
 
+    let provider:MoyaProvider<GitHub>
+    let repo:Repo
+    
+    init(provider:MoyaProvider<GitHub>, repo:Repo) {
+        self.provider = provider
+        self.repo = repo
+    }
 }

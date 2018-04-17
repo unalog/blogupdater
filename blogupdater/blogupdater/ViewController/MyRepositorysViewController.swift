@@ -33,20 +33,32 @@ class MyRepositorysViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "goRepo"{
+            let vc = segue.destination as! ContentViewController
+            vc.viewModel = (sender as! ContentViewModel)
+        }
     }
-    */
+    
 
     func bindToRx()  {
         
         
         self.title = viewModel.title
+        
+        tableView.rx.itemSelected.bind(to:viewModel.selectedItem).disposed(by: disposeBag)
+        viewModel.selectedViewModel.subscribe(onNext: { [weak self] repo in
+            
+            self?.performSegue(withIdentifier: "goRepo", sender: repo)
+            
+        }).disposed(by: disposeBag)
         
         viewModel.viewModelResult.drive(onNext: { [weak self] result in
             

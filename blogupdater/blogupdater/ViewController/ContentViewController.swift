@@ -7,13 +7,21 @@
 //
 
 import UIKit
+import Moya
+import RxCocoa
+import RxSwift
 
 class ContentViewController: UIViewController {
 
+    var provider:MoyaProvider<GitHub>?
+    var viewModel:ContentViewModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        bindToRx()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,4 +40,10 @@ class ContentViewController: UIViewController {
     }
     */
 
+    func bindToRx()  {
+        guard let vm = viewModel else {
+            return
+        }
+        
+    }
 }

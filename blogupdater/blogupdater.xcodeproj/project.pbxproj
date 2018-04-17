@@ -38,6 +38,8 @@
 		B58C58AB207F338F008FBCC1 /* LoginResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C58AA207F338F008FBCC1 /* LoginResult.swift */; };
 		B58C58AE207F360A008FBCC1 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C58AD207F360A008FBCC1 /* GitHubAPI.swift */; };
 		B58C58B0207F37D0008FBCC1 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58C58AF207F37D0008FBCC1 /* Token.swift */; };
+		B5BE1F1A20858ADC00261119 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE1F1920858ADC00261119 /* ContentViewController.swift */; };
+		B5BE1F1C20858B4C00261119 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE1F1B20858B4C00261119 /* ContentViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		B58C58AA207F338F008FBCC1 /* LoginResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResult.swift; sourceTree = "<group>"; };
 		B58C58AD207F360A008FBCC1 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		B58C58AF207F37D0008FBCC1 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		B5BE1F1920858ADC00261119 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
+		B5BE1F1B20858B4C00261119 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		CEF5762421A36E519145C9DB /* Pods-blogupdater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blogupdater.release.xcconfig"; path = "Pods/Target Support Files/Pods-blogupdater/Pods-blogupdater.release.xcconfig"; sourceTree = "<group>"; };
 		FFE5E1B3585AF9443A63B497 /* Pods_blogupdater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blogupdater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -190,6 +194,7 @@
 				B5044E0F20803F270020C56C /* MainViewController.swift */,
 				B551DF6D2084650700D5CAED /* RepositoryViewController.swift */,
 				B551DF79208485E700D5CAED /* MyRepositorysViewController.swift */,
+				B5BE1F1920858ADC00261119 /* ContentViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -203,6 +208,7 @@
 				B5044E322080917D0020C56C /* RepoCellViewModel.swift */,
 				B551DF6B2084626100D5CAED /* RepositoryViewModel.swift */,
 				B551DF7B2084860C00D5CAED /* MyRepositorysViewModel.swift */,
+				B5BE1F1B20858B4C00261119 /* ContentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 				B5044E362080933E0020C56C /* RepoCell.swift in Sources */,
 				B551DF7C2084860C00D5CAED /* MyRepositorysViewModel.swift in Sources */,
 				B5044E3120808EFB0020C56C /* Owner.swift in Sources */,
+				B5BE1F1C20858B4C00261119 /* ContentViewModel.swift in Sources */,
 				B5044E1020803F270020C56C /* MainViewController.swift in Sources */,
 				B551DF6E2084650700D5CAED /* RepositoryViewController.swift in Sources */,
 				B58C58AB207F338F008FBCC1 /* LoginResult.swift in Sources */,
@@ -359,6 +366,7 @@
 				B551DF7A208485E700D5CAED /* MyRepositorysViewController.swift in Sources */,
 				B58C58A6207F30E9008FBCC1 /* LoginViewController.swift in Sources */,
 				B58C5893207F2BE4008FBCC1 /* AppDelegate.swift in Sources */,
+				B5BE1F1A20858ADC00261119 /* ContentViewController.swift in Sources */,
 				B551DF6C2084626100D5CAED /* RepositoryViewModel.swift in Sources */,
 				B5044E1D208081D30020C56C /* Decodeable_Rx.swift in Sources */,
 				B5044E2A20808D3A0020C56C /* StubResponse.swift in Sources */,

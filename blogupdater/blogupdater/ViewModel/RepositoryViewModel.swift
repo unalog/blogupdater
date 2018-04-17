@@ -53,7 +53,7 @@ class RepositoryViewModel {
             })
         .share(replay: 1, scope: SubjectLifetimeScope.whileConnected)
         
-        let lastThreePullsObservers = provider.rx.request(GitHub.pulls(onwer: repo.owner.name, repo: repo.fullName)).asObservable()
+        let lastThreePullsObservers = provider.rx.request(GitHub.pulls(owner: repo.owner.name, repo: repo.fullName)).asObservable()
         .mapToModels(PullRequest.self)
         .asDriver(onErrorJustReturn: [])
         .map { (models:[PullRequest]) -> RepositorySectionViewModel in
@@ -63,7 +63,7 @@ class RepositoryViewModel {
             return RepositorySectionViewModel(header: "Last three pull Request", items: items)
         }
             
-        let lastTreeIssuesObservable = provider.rx.request(GitHub.issues(onwer: repo.owner.name, repo: repo.fullName)).asObservable()
+        let lastTreeIssuesObservable = provider.rx.request(GitHub.issues(owner: repo.owner.name, repo: repo.fullName)).asObservable()
         .mapToModels(Issue.self)
         .asDriver(onErrorJustReturn: [])
             .map { (models:[Issue]) -> RepositorySectionViewModel in
@@ -73,7 +73,7 @@ class RepositoryViewModel {
                 return RepositorySectionViewModel(header: "Last three issues", items: item)
         }
         
-        let lastTreeCommitObservable = provider.rx.request(GitHub.commits(onwer: repo.owner.name, repo: repo.fullName))
+        let lastTreeCommitObservable = provider.rx.request(GitHub.commits(owner: repo.owner.name, repo: repo.fullName))
         .asObservable()
         .mapToModels(Commit.self)
         .asDriver(onErrorJustReturn: [])

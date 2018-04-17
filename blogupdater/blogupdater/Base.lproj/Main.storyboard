@@ -347,11 +347,27 @@
                     <navigationItem key="navigationItem" id="uDO-af-Kxp"/>
                     <connections>
                         <outlet property="tableView" destination="QD5-fh-YwM" id="L2r-2X-U2c"/>
+                        <segue destination="clG-uv-Zi4" kind="show" identifier="goRepo" id="JjR-ow-RBM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D63-lg-kaL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="276" y="921.58920539730138"/>
+        </scene>
+        <!--Content View Controller-->
+        <scene sceneID="7G2-fG-dr1">
+            <objects>
+                <viewController id="clG-uv-Zi4" customClass="ContentViewController" customModule="blogupdater" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l9H-U0-OEQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="kes-dg-ru5"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9gf-Sd-kwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1036" y="922"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">

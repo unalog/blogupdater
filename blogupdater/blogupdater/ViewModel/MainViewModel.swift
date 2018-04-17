@@ -20,11 +20,12 @@ enum MainViewModelResult {
 class MainViewModel {
 
     var searchText = BehaviorRelay(value:"")
+    
     var selectedItem = PublishSubject<IndexPath>()
+    let selectedViewModel : Observable<RepositoryViewModel>
     
     let results : Driver<MainViewModelResult>
     let executing : Driver<Bool>
-    let selectedViewModel : Observable<RepositoryViewModel>
     let title = "Search"
     
     fileprivate let repoModels : BehaviorRelay<[Repo]>

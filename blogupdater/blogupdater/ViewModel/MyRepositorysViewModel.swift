@@ -25,6 +25,9 @@ class MyRepositorysViewModel {
     let viewModelResult :Driver<viewModelResult>
     var repoModels :BehaviorRelay<[Repo]>
     
+    let selectedItem =  PublishSubject<IndexPath>()
+    let selectedViewModel :Observable<ContentViewModel>
+    
     init(provider:MoyaProvider<GitHub>) {
     
         self.title = "My Repositorys"
@@ -44,7 +47,11 @@ class MyRepositorysViewModel {
                 
             }.asDriver(onErrorJustReturn: .empty)
         
-        
+        selectedViewModel = selectedItem.withLatestFrom(repoModels.asObservable(), resultSelector: { (indexPath, viewModes) -> ContentViewModel in
+            
+            ContentViewModel(provider: provider, repo:viewModes[indexPath.row])
+            
+        })
         
         
     }
