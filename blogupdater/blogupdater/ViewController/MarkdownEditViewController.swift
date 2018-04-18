@@ -12,6 +12,8 @@ import RxSwift
 
 class MarkdownEditViewController: UIViewController {
 
+    var viewModel : MarkdownEditViewModel?
+    
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var textView: UITextView!

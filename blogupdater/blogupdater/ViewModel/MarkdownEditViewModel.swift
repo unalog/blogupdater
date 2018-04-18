@@ -7,3 +7,16 @@
 //
 
 import Foundation
+import RxSwift
+import Moya
+
+class MarkdownEditViewModel {
+    
+    let provider : MoyaProvider<GitHub>
+    let path : String
+    
+    init(provider:MoyaProvider<GitHub>, path:String) {
+        self.provider = provider
+        self.path = path
+    }
+}

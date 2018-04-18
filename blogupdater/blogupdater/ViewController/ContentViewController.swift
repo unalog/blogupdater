@@ -14,7 +14,6 @@ import SafariServices
 
 class ContentViewController: UIViewController {
 
-    var provider:MoyaProvider<GitHub>?
     var viewModel:ContentViewModel?
     var dataSource=[ContentViewCell]()
     
@@ -36,15 +35,22 @@ class ContentViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "goMDEditVC"{
+            
+            let vc : MarkdownEditViewController = segue.destination as! MarkdownEditViewController
+            vc.viewModel = sender as? MarkdownEditViewModel
+            
+        }
     }
-    */
+    
 
     func bindToRx()  {
         guard let vm = viewModel else {
@@ -78,6 +84,13 @@ class ContentViewController: UIViewController {
             
             self?.addButton.isEnabled = isEnable
         }).disposed(by: disposeBag)
+        
+        addButton.rx.tap.throttle(1.0, scheduler:MainScheduler.instance)
+            .subscribe { [weak self] event in
+                
+                let viewModel = MarkdownEditViewModel(provider: vm.provider, path: vm.path)
+                self?.performSegue(withIdentifier: "goMDEditVC", sender: viewModel)
+        }.disposed(by: disposeBag)
     }
 }
 

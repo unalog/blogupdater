@@ -399,15 +399,12 @@
                         <viewLayoutGuide key="safeArea" id="kes-dg-ru5"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="PR0-kr-qCM">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="lxc-NF-bKT">
-                            <connections>
-                                <segue destination="2sV-wA-zar" kind="presentation" id="RyH-w1-3tA"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="lxc-NF-bKT"/>
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="lxc-NF-bKT" id="xPs-iS-4Rg"/>
                         <outlet property="tableView" destination="2n0-Xa-CQv" id="85J-K6-3dQ"/>
+                        <segue destination="2sV-wA-zar" kind="presentation" identifier="goMDEditVC" id="Ytw-G0-bGb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9gf-Sd-kwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
