@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F4E889BEE51802B27D89183 /* libPods-blogupdaterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DF44EE75AAAFC716862611A /* libPods-blogupdaterTests.a */; };
 		A675BFFD8C053564492E3DDC /* Pods_blogupdater.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFE5E1B3585AF9443A63B497 /* Pods_blogupdater.framework */; };
 		B5044E1020803F270020C56C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5044E0F20803F270020C56C /* MainViewController.swift */; };
 		B5044E1420804AF40020C56C /* NetworkingLoggerPlaugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5044E1320804AF40020C56C /* NetworkingLoggerPlaugin.swift */; };
@@ -43,7 +42,8 @@
 		B5BE1F1C20858B4C00261119 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE1F1B20858B4C00261119 /* ContentViewModel.swift */; };
 		B5BE1F1E2085A83100261119 /* ReadMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE1F1D2085A83100261119 /* ReadMe.swift */; };
 		B5BE1F202085C11900261119 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE1F1F2085C11900261119 /* Content.swift */; };
-		B5BE1F282085E49700261119 /* blogupdaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE1F272085E49700261119 /* blogupdaterTests.swift */; };
+		B5F07AAD20870464000A2FB1 /* DecodeableRxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F07AAC20870464000A2FB1 /* DecodeableRxSpec.swift */; };
+		CD843F2F2CB1A921A4E78997 /* Pods_blogupdaterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA1030BC5FD3034F6BAE3EC /* Pods_blogupdaterTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,9 +58,9 @@
 
 /* Begin PBXFileReference section */
 		0B57017A6D2FF2BCCEA05B0B /* Pods-blogupdaterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blogupdaterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-blogupdaterTests/Pods-blogupdaterTests.release.xcconfig"; sourceTree = "<group>"; };
+		0FA1030BC5FD3034F6BAE3EC /* Pods_blogupdaterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blogupdaterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		22A00EAA4035872CFAF769F1 /* Pods-blogupdaterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blogupdaterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-blogupdaterTests/Pods-blogupdaterTests.debug.xcconfig"; sourceTree = "<group>"; };
 		343DEF06550894B3A79A4B77 /* Pods-blogupdater.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blogupdater.debug.xcconfig"; path = "Pods/Target Support Files/Pods-blogupdater/Pods-blogupdater.debug.xcconfig"; sourceTree = "<group>"; };
-		9DF44EE75AAAFC716862611A /* libPods-blogupdaterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-blogupdaterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5044E0F20803F270020C56C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B5044E1320804AF40020C56C /* NetworkingLoggerPlaugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingLoggerPlaugin.swift; sourceTree = "<group>"; };
 		B5044E1820807FF00020C56C /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
@@ -98,8 +98,8 @@
 		B5BE1F1D2085A83100261119 /* ReadMe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadMe.swift; sourceTree = "<group>"; };
 		B5BE1F1F2085C11900261119 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		B5BE1F252085E49700261119 /* blogupdaterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = blogupdaterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5BE1F272085E49700261119 /* blogupdaterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = blogupdaterTests.swift; sourceTree = "<group>"; };
 		B5BE1F292085E49700261119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5F07AAC20870464000A2FB1 /* DecodeableRxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeableRxSpec.swift; sourceTree = "<group>"; };
 		CEF5762421A36E519145C9DB /* Pods-blogupdater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blogupdater.release.xcconfig"; path = "Pods/Target Support Files/Pods-blogupdater/Pods-blogupdater.release.xcconfig"; sourceTree = "<group>"; };
 		FFE5E1B3585AF9443A63B497 /* Pods_blogupdater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blogupdater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -118,7 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F4E889BEE51802B27D89183 /* libPods-blogupdaterTests.a in Frameworks */,
+				CD843F2F2CB1A921A4E78997 /* Pods_blogupdaterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +141,7 @@
 			children = (
 				B551DF7720847E1100D5CAED /* SafariServices.framework */,
 				FFE5E1B3585AF9443A63B497 /* Pods_blogupdater.framework */,
-				9DF44EE75AAAFC716862611A /* libPods-blogupdaterTests.a */,
+				0FA1030BC5FD3034F6BAE3EC /* Pods_blogupdaterTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -266,10 +266,18 @@
 		B5BE1F262085E49700261119 /* blogupdaterTests */ = {
 			isa = PBXGroup;
 			children = (
-				B5BE1F272085E49700261119 /* blogupdaterTests.swift */,
+				B5F07AAB2087042A000A2FB1 /* Model */,
 				B5BE1F292085E49700261119 /* Info.plist */,
 			);
 			path = blogupdaterTests;
+			sourceTree = "<group>";
+		};
+		B5F07AAB2087042A000A2FB1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5F07AAC20870464000A2FB1 /* DecodeableRxSpec.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +310,7 @@
 				B5BE1F212085E49700261119 /* Sources */,
 				B5BE1F222085E49700261119 /* Frameworks */,
 				B5BE1F232085E49700261119 /* Resources */,
+				8DA86CF78504B49631E58060 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -380,12 +389,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-blogupdater/Pods-blogupdater-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire-framework/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Moya-framework/Moya.framework",
-				"${BUILT_PRODUCTS_DIR}/Result-framework/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa-framework/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift-framework/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-framework/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -399,6 +408,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-blogupdater/Pods-blogupdater-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DA86CF78504B49631E58060 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-blogupdaterTests/Pods-blogupdaterTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-blogupdaterTests/Pods-blogupdaterTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A46975722BF247ADDF8D5CAB /* [CP] Check Pods Manifest.lock */ = {
@@ -480,7 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5BE1F282085E49700261119 /* blogupdaterTests.swift in Sources */,
+				B5F07AAD20870464000A2FB1 /* DecodeableRxSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -635,7 +678,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = blogupdater/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.una.blogupdater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -650,7 +696,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = blogupdater/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.una.blogupdater;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -665,7 +714,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = blogupdaterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.una.blogupdaterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -681,7 +734,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = blogupdaterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.una.blogupdaterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

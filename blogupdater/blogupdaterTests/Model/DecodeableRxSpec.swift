@@ -6,30 +6,70 @@
 //  Copyright © 2018년 una. All rights reserved.
 //
 
-import XCTest
+import Quick
+import Nimble
+import Moya
+import SwiftyJSON
+import RxSwift
+import RxBlocking
+
+@testable import blogupdater
+
+private struct ModelMock {
+    let something: String
+}
+
+extension ModelMock: blogupdater.Decodable {
+    static func fromJSON(_ json: AnyObject) -> ModelMock {
+        let json = JSON(json)
+        let something = json["something"].stringValue
+        return ModelMock(something: something)
+    }
+}
+
 
 class DecodeableRxSpec: QuickSpec {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    override func spec() {
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        describe("Decodable") {
+            it("should map to one modle"){
+                let json = "{\"something\": \"else\"}"
+                let sut = try! Observable.just(Response(statusCode: 200, data: json.data(using: String.Encoding.utf8)!))
+                    .mapToModel(ModelMock.self)
+                    .toBlocking()
+                    .first()
+                
+                expect(sut!.something) == "else"
+            
+            }
+            
+            it("should map to multiple models"){
+                let json = "[{\"something\": \"else\"}, {\"something\": \"oops\"}]"
+                
+                let sut = try! Observable.just(Response(statusCode: 200, data: json.data(using: String.Encoding.utf8)!))
+                    .mapToModels(ModelMock.self)
+                    .toBlocking()
+                    .first()
+                expect(sut!.count) == 2
+                expect(sut!.first!.something) == "else"
+            }
+            
+            it ("should map to multiple models whit provided array root key"){
+                
+               let json = "{\"items\": [{\"something\": \"else\"}, {\"something\": \"oops\"}]}"
+                
+                let sut = try! Observable.just(Response(statusCode: 200, data: json.data(using: String.Encoding.utf8)!))
+                    .mapToModels(ModelMock.self, arrayRootKey: "items")
+                    .toBlocking()
+                    .first()
+                expect(sut!.count) == 2
+                expect(sut!.first!.something) == "else"
+                expect(sut!.last!.something) == "oops"
+                
+            }
         }
+       
     }
     
 }
