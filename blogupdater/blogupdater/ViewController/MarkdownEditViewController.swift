@@ -7,13 +7,24 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class MarkdownEditViewController: UIViewController {
 
+    @IBOutlet weak var closeButton: UIButton!
+    @IBOutlet weak var uploadButton: UIButton!
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var fileNameTextField: UITextField!
+    
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        bindToRx()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,5 +42,12 @@ class MarkdownEditViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    func bindToRx() {
+    
+        closeButton.rx.tap.throttle(1.0,scheduler:MainScheduler.instance)
+            .subscribe { [weak self] event in
+                self?.dismiss(animated: true, completion: nil)
+        }.disposed(by: disposeBag)
+    }
 }

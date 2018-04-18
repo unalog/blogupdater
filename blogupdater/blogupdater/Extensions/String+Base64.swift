@@ -25,7 +25,16 @@ extension String{
         return data.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))
     }
 
-    static func toBase64File() -> String {
+    static func toBase64File(url:URL!) -> String? {
+        
+        do{
+            let fileData = try Data.init(contentsOf: url)
+            let fileStream:String = fileData.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0))
+            
+            return fileStream
+        }catch{
+            return nil
+        }
         
     }
 }

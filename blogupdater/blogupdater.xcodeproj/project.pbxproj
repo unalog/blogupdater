@@ -43,6 +43,8 @@
 		B5BE1F1E2085A83100261119 /* ReadMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE1F1D2085A83100261119 /* ReadMe.swift */; };
 		B5BE1F202085C11900261119 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE1F1F2085C11900261119 /* Content.swift */; };
 		B5F07AAD20870464000A2FB1 /* DecodeableRxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F07AAC20870464000A2FB1 /* DecodeableRxSpec.swift */; };
+		B5F07AB020871672000A2FB1 /* String+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F07AAF20871672000A2FB1 /* String+Base64.swift */; };
+		B5F07AB2208719FC000A2FB1 /* MarkdownEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F07AB1208719FC000A2FB1 /* MarkdownEditViewController.swift */; };
 		CD843F2F2CB1A921A4E78997 /* Pods_blogupdaterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA1030BC5FD3034F6BAE3EC /* Pods_blogupdaterTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +102,9 @@
 		B5BE1F252085E49700261119 /* blogupdaterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = blogupdaterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5BE1F292085E49700261119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B5F07AAC20870464000A2FB1 /* DecodeableRxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeableRxSpec.swift; sourceTree = "<group>"; };
+		B5F07AAE2087160C000A2FB1 /* post_mark_down.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = post_mark_down.md; sourceTree = "<group>"; };
+		B5F07AAF20871672000A2FB1 /* String+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64.swift"; sourceTree = "<group>"; };
+		B5F07AB1208719FC000A2FB1 /* MarkdownEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditViewController.swift; sourceTree = "<group>"; };
 		CEF5762421A36E519145C9DB /* Pods-blogupdater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blogupdater.release.xcconfig"; path = "Pods/Target Support Files/Pods-blogupdater/Pods-blogupdater.release.xcconfig"; sourceTree = "<group>"; };
 		FFE5E1B3585AF9443A63B497 /* Pods_blogupdater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blogupdater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -173,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				B5044E2E20808E3F0020C56C /* NSDate.swift */,
+				B5F07AAF20871672000A2FB1 /* String+Base64.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -220,6 +226,7 @@
 				B58C5899207F2BE5008FBCC1 /* Assets.xcassets */,
 				B58C589B207F2BE5008FBCC1 /* LaunchScreen.storyboard */,
 				B58C589E207F2BE5008FBCC1 /* Info.plist */,
+				B5F07AAE2087160C000A2FB1 /* post_mark_down.md */,
 			);
 			path = blogupdater;
 			sourceTree = "<group>";
@@ -232,6 +239,7 @@
 				B551DF6D2084650700D5CAED /* RepositoryViewController.swift */,
 				B551DF79208485E700D5CAED /* MyRepositorysViewController.swift */,
 				B5BE1F1920858ADC00261119 /* ContentViewController.swift */,
+				B5F07AB1208719FC000A2FB1 /* MarkdownEditViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -501,8 +509,10 @@
 				B5044E27208088310020C56C /* MainViewModel.swift in Sources */,
 				B5044E1B2080812B0020C56C /* Decodable.swift in Sources */,
 				B5044E2F20808E3F0020C56C /* NSDate.swift in Sources */,
+				B5F07AB2208719FC000A2FB1 /* MarkdownEditViewController.swift in Sources */,
 				B551DF722084758800D5CAED /* PullRequest.swift in Sources */,
 				B551DF7A208485E700D5CAED /* MyRepositorysViewController.swift in Sources */,
+				B5F07AB020871672000A2FB1 /* String+Base64.swift in Sources */,
 				B58C58A6207F30E9008FBCC1 /* LoginViewController.swift in Sources */,
 				B58C5893207F2BE4008FBCC1 /* AppDelegate.swift in Sources */,
 				B5BE1F202085C11900261119 /* Content.swift in Sources */,

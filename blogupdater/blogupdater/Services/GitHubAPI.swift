@@ -23,6 +23,7 @@ public enum GitHub{
     case myRepos
     case readMe(owner:String, repo:String)
     case contents(owner:String, repo:String, path:String)
+    case createFile(owner:String, repo:String, path:String, content:String)
 }
 
 private extension String{
@@ -62,7 +63,8 @@ extension GitHub: TargetType{
             return "/repos\(owner)/\(repo)/readme"
         case .contents(let owner, let repo, let path):
             return "repos\(owner)/\(repo)/contents/\(path)"
-            
+        case .createFile(let owner, let repo, let path, _):
+            return "/repos\(owner)/\(repo)/contents/\(path)"
         }
     }
     
@@ -70,6 +72,9 @@ extension GitHub: TargetType{
         switch self {
         case .token(_, _):
             return .post
+        case .createFile(_,_,_,_):
+            return .put
+            
         case .repoSearch(_),
              .trendingReposSinceLastWeek,
              .repo(_,_),
@@ -81,9 +86,8 @@ extension GitHub: TargetType{
              .readMe(_,_),
              .contents(_, _, _):
         
-            
-            
             return .get
+            
         }
     }
     public var headers: [String : String]? {
@@ -126,7 +130,9 @@ extension GitHub: TargetType{
         case .myRepos:
             return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
         case .readMe(_, _),
-             .contents(_,_,_):
+             .contents(_,_,_),
+             .createFile(_,_,_,_):
+            
             return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
             
         }
@@ -159,6 +165,10 @@ extension GitHub: TargetType{
         case .contents(_, _, let path):
             let params=["path":path,"ref":"master"]
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        case .createFile(_,_, let path,let content):
+            let params = ["path":path, "message":"add file", "content":content, "branch":"master"]
+            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+            
         }
         
      
