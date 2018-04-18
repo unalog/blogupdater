@@ -45,6 +45,7 @@
 		B5F07AAD20870464000A2FB1 /* DecodeableRxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F07AAC20870464000A2FB1 /* DecodeableRxSpec.swift */; };
 		B5F07AB020871672000A2FB1 /* String+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F07AAF20871672000A2FB1 /* String+Base64.swift */; };
 		B5F07AB2208719FC000A2FB1 /* MarkdownEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F07AB1208719FC000A2FB1 /* MarkdownEditViewController.swift */; };
+		B5F07AB420871EB0000A2FB1 /* MarkdownEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F07AB320871EB0000A2FB1 /* MarkdownEditViewModel.swift */; };
 		CD843F2F2CB1A921A4E78997 /* Pods_blogupdaterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA1030BC5FD3034F6BAE3EC /* Pods_blogupdaterTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		B5F07AAE2087160C000A2FB1 /* post_mark_down.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = post_mark_down.md; sourceTree = "<group>"; };
 		B5F07AAF20871672000A2FB1 /* String+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64.swift"; sourceTree = "<group>"; };
 		B5F07AB1208719FC000A2FB1 /* MarkdownEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditViewController.swift; sourceTree = "<group>"; };
+		B5F07AB320871EB0000A2FB1 /* MarkdownEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkdownEditViewModel.swift; sourceTree = "<group>"; };
 		CEF5762421A36E519145C9DB /* Pods-blogupdater.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blogupdater.release.xcconfig"; path = "Pods/Target Support Files/Pods-blogupdater/Pods-blogupdater.release.xcconfig"; sourceTree = "<group>"; };
 		FFE5E1B3585AF9443A63B497 /* Pods_blogupdater.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_blogupdater.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -254,6 +256,7 @@
 				B551DF6B2084626100D5CAED /* RepositoryViewModel.swift */,
 				B551DF7B2084860C00D5CAED /* MyRepositorysViewModel.swift */,
 				B5BE1F1B20858B4C00261119 /* ContentViewModel.swift */,
+				B5F07AB320871EB0000A2FB1 /* MarkdownEditViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 				B551DF6E2084650700D5CAED /* RepositoryViewController.swift in Sources */,
 				B58C58AB207F338F008FBCC1 /* LoginResult.swift in Sources */,
 				B551DF7620847A5500D5CAED /* Commit.swift in Sources */,
+				B5F07AB420871EB0000A2FB1 /* MarkdownEditViewModel.swift in Sources */,
 				B5044E27208088310020C56C /* MainViewModel.swift in Sources */,
 				B5044E1B2080812B0020C56C /* Decodable.swift in Sources */,
 				B5044E2F20808E3F0020C56C /* NSDate.swift in Sources */,
