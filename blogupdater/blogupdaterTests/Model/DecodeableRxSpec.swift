@@ -1,14 +1,14 @@
 //
-//  blogupdaterTests.swift
+//  DecodeableRxSpec.swift
 //  blogupdaterTests
 //
-//  Created by una on 2018. 4. 17..
+//  Created by una on 2018. 4. 18..
 //  Copyright © 2018년 una. All rights reserved.
 //
 
 import XCTest
 
-class blogupdaterTests: XCTestCase {
+class DecodeableRxSpec: QuickSpec {
     
     override func setUp() {
         super.setUp()
