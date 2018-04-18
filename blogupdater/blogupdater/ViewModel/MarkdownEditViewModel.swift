@@ -8,15 +8,45 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 import Moya
 
-class MarkdownEditViewModel {
+enum MarkdownMode{
+    case new
+    case modify(url:String)
+}
+
+public protocol ContentType{
+    var content : String {get}
+}
+
+extension MarkdownMode:ContentType{
+    var content: String {
+        switch self {
+        case .new:
+            return "new"
+        case .modify(_):
+            return "modify"
+        }
+    }
+}
+
+class MarkdownEditViewModel{
+    
+    let mode : MarkdownMode
     
     let provider : MoyaProvider<GitHub>
     let path : String
+    var content = BehaviorSubject(value: "")
+    let tabUpload = PublishSubject<Void>()
     
-    init(provider:MoyaProvider<GitHub>, path:String) {
+    init(mode:MarkdownMode, provider:MoyaProvider<GitHub>, path:String) {
+        self.mode = mode
         self.provider = provider
         self.path = path
+        
+        content.onNext(mode.content)
+        
     }
+    
 }

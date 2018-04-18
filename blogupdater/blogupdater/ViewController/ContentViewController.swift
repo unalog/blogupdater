@@ -75,8 +75,9 @@ class ContentViewController: UIViewController {
         
         vm.selectFileViewModel.subscribe(onNext: { [weak self] data in
             
-            let safari = SFSafariViewController(url: URL(string:data.url)!)
-            self?.present(safari, animated: true, completion: nil)
+            let viewModel = MarkdownEditViewModel(mode : MarkdownMode.modify(url: data.path) ,provider: vm.provider, path: vm.path)
+            self?.performSegue(withIdentifier: "goMDEditVC", sender: viewModel)
+            
         }).disposed(by: disposeBag)
         
         
@@ -88,7 +89,7 @@ class ContentViewController: UIViewController {
         addButton.rx.tap.throttle(1.0, scheduler:MainScheduler.instance)
             .subscribe { [weak self] event in
                 
-                let viewModel = MarkdownEditViewModel(provider: vm.provider, path: vm.path)
+                let viewModel = MarkdownEditViewModel(mode : MarkdownMode.new ,provider: vm.provider, path: vm.path)
                 self?.performSegue(withIdentifier: "goMDEditVC", sender: viewModel)
         }.disposed(by: disposeBag)
     }

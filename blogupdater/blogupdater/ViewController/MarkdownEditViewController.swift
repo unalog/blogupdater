@@ -13,7 +13,6 @@ import RxSwift
 class MarkdownEditViewController: UIViewController {
 
     var viewModel : MarkdownEditViewModel?
-    
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var textView: UITextView!
@@ -47,9 +46,25 @@ class MarkdownEditViewController: UIViewController {
     
     func bindToRx() {
     
+        guard let vm = viewModel else{ return }
+        
         closeButton.rx.tap.throttle(1.0,scheduler:MainScheduler.instance)
             .subscribe { [weak self] event in
                 self?.dismiss(animated: true, completion: nil)
         }.disposed(by: disposeBag)
+        
+        
+        textView.isEditable = false
+        
+        vm.content.subscribe(onNext: { [weak self] text in
+            self?.textView.isEditable = true
+            self?.textView.text = text
+        }).disposed(by: disposeBag)
+        
+        textView.rx.text.orEmpty.bind(to:vm.content).disposed(by:disposeBag)
+        
+        
+        
+        
     }
 }
