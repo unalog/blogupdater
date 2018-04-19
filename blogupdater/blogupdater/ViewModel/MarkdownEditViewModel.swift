@@ -12,7 +12,7 @@ import RxCocoa
 import Moya
 
 enum MarkdownMode{
-    case new
+    case new(name:String)
     case modify(url:String, name:String)
 }
 
@@ -23,8 +23,9 @@ public protocol ContentType{
 extension MarkdownMode:ContentType{
     var content: String {
         switch self {
-        case .new:
+        case .new(let name):
             
+            Bundle.main.path(forResource: name.fileName(), ofType: name.fileExtension())
             guard let path = Bundle.main.path(forResource: "post_mark_down", ofType: "md") else {
                 return "path null"
             }
@@ -58,15 +59,14 @@ class MarkdownEditViewModel{
     
     let provider : MoyaProvider<GitHub>
     let path : String
-    let name : String
     var content = BehaviorSubject(value: "")
     let tabUpload = PublishSubject<Void>()
     
-    init(mode:MarkdownMode, provider:MoyaProvider<GitHub>, path:String, name :String) {
+    init(mode:MarkdownMode, provider:MoyaProvider<GitHub>, path:String) {
         self.mode = mode
         self.provider = provider
         self.path = path
-        self.name = name
+
         
        
         switch mode{
@@ -81,3 +81,15 @@ class MarkdownEditViewModel{
     }
     
 }
+
+extension String {
+    
+    func fileName() -> String {
+        return NSURL(fileURLWithPath: self).deletingPathExtension?.lastPathComponent ?? ""
+    }
+    
+    func fileExtension() -> String {
+        return NSURL(fileURLWithPath: self).pathExtension ?? ""
+    }
+}
+
