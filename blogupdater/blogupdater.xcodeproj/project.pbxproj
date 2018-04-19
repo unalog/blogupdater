@@ -42,10 +42,13 @@
 		B5BE1F1C20858B4C00261119 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE1F1B20858B4C00261119 /* ContentViewModel.swift */; };
 		B5BE1F1E2085A83100261119 /* ReadMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE1F1D2085A83100261119 /* ReadMe.swift */; };
 		B5BE1F202085C11900261119 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5BE1F1F2085C11900261119 /* Content.swift */; };
+		B5DC617E2088262B000E0963 /* FileDownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5DC617D2088262B000E0963 /* FileDownloadService.swift */; };
 		B5F07AAD20870464000A2FB1 /* DecodeableRxSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F07AAC20870464000A2FB1 /* DecodeableRxSpec.swift */; };
 		B5F07AB020871672000A2FB1 /* String+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F07AAF20871672000A2FB1 /* String+Base64.swift */; };
 		B5F07AB2208719FC000A2FB1 /* MarkdownEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F07AB1208719FC000A2FB1 /* MarkdownEditViewController.swift */; };
 		B5F07AB420871EB0000A2FB1 /* MarkdownEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5F07AB320871EB0000A2FB1 /* MarkdownEditViewModel.swift */; };
+		B5F07AB520873DA3000A2FB1 /* post_mark_down.md in Resources */ = {isa = PBXBuildFile; fileRef = B5F07AAE2087160C000A2FB1 /* post_mark_down.md */; };
+		B5F07AB620873DA3000A2FB1 /* post_mark_down.md in Resources */ = {isa = PBXBuildFile; fileRef = B5F07AAE2087160C000A2FB1 /* post_mark_down.md */; };
 		CD843F2F2CB1A921A4E78997 /* Pods_blogupdaterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FA1030BC5FD3034F6BAE3EC /* Pods_blogupdaterTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +105,7 @@
 		B5BE1F1F2085C11900261119 /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		B5BE1F252085E49700261119 /* blogupdaterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = blogupdaterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5BE1F292085E49700261119 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5DC617D2088262B000E0963 /* FileDownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileDownloadService.swift; sourceTree = "<group>"; };
 		B5F07AAC20870464000A2FB1 /* DecodeableRxSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeableRxSpec.swift; sourceTree = "<group>"; };
 		B5F07AAE2087160C000A2FB1 /* post_mark_down.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = post_mark_down.md; sourceTree = "<group>"; };
 		B5F07AAF20871672000A2FB1 /* String+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64.swift"; sourceTree = "<group>"; };
@@ -265,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				B58C58AD207F360A008FBCC1 /* GitHubAPI.swift */,
+				B5DC617D2088262B000E0963 /* FileDownloadService.swift */,
 				B58C58AF207F37D0008FBCC1 /* Token.swift */,
 				B5044E1320804AF40020C56C /* NetworkingLoggerPlaugin.swift */,
 				B5044E1A2080812B0020C56C /* Decodable.swift */,
@@ -377,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5044E2C20808D670020C56C /* SearchResponse.json in Resources */,
+				B5F07AB520873DA3000A2FB1 /* post_mark_down.md in Resources */,
 				B58C589D207F2BE5008FBCC1 /* LaunchScreen.storyboard in Resources */,
 				B58C589A207F2BE5008FBCC1 /* Assets.xcassets in Resources */,
 				B58C5898207F2BE4008FBCC1 /* Main.storyboard in Resources */,
@@ -387,6 +393,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5F07AB620873DA3000A2FB1 /* post_mark_down.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,6 +523,7 @@
 				B5F07AB2208719FC000A2FB1 /* MarkdownEditViewController.swift in Sources */,
 				B551DF722084758800D5CAED /* PullRequest.swift in Sources */,
 				B551DF7A208485E700D5CAED /* MyRepositorysViewController.swift in Sources */,
+				B5DC617E2088262B000E0963 /* FileDownloadService.swift in Sources */,
 				B5F07AB020871672000A2FB1 /* String+Base64.swift in Sources */,
 				B58C58A6207F30E9008FBCC1 /* LoginViewController.swift in Sources */,
 				B58C5893207F2BE4008FBCC1 /* AppDelegate.swift in Sources */,

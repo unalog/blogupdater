@@ -75,7 +75,7 @@ class ContentViewController: UIViewController {
         
         vm.selectFileViewModel.subscribe(onNext: { [weak self] data in
             
-            let viewModel = MarkdownEditViewModel(mode : MarkdownMode.modify(url: data.path) ,provider: vm.provider, path: vm.path)
+            let viewModel = MarkdownEditViewModel(mode : MarkdownMode.modify(url: data.url, name: data.name) ,provider: vm.provider, path: vm.path, name:data.name)
             self?.performSegue(withIdentifier: "goMDEditVC", sender: viewModel)
             
         }).disposed(by: disposeBag)
@@ -89,7 +89,7 @@ class ContentViewController: UIViewController {
         addButton.rx.tap.throttle(1.0, scheduler:MainScheduler.instance)
             .subscribe { [weak self] event in
                 
-                let viewModel = MarkdownEditViewModel(mode : MarkdownMode.new ,provider: vm.provider, path: vm.path)
+                let viewModel = MarkdownEditViewModel(mode : MarkdownMode.new ,provider: vm.provider, path: vm.path, name: "post_mark_down.md")
                 self?.performSegue(withIdentifier: "goMDEditVC", sender: viewModel)
         }.disposed(by: disposeBag)
     }

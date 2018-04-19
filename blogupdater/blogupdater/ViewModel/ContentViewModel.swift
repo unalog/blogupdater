@@ -110,7 +110,7 @@ extension Observable{
     func mapToContentViewCell() -> Observable<[ContentViewCell]> {
         return self.map{ data  in
            if let data = data as? [Content] {
-                return data.map{ContentViewCell(type: $0.type, name: $0.name, path: $0.path, url : $0.htmlUrl)}
+                return data.map{ContentViewCell(type: $0.type, name: $0.name, path: $0.path, url : $0.downloadUrl)}
             }
             else{
                 return []

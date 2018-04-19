@@ -14,6 +14,7 @@ struct Content {
     let name : String
     let path : String
     let htmlUrl: String
+    let downloadUrl : String
     
 }
 
@@ -26,7 +27,8 @@ extension Content:Decodable{
         let name = json["name"].stringValue
         let path = json["path"].stringValue
         let htmlUrl = json["html_url"].stringValue
+        let downloadUrl = json["download_url"].stringValue
         
-        return Content(type: type, name: name, path: path, htmlUrl: htmlUrl)
+        return Content(type: type, name: name, path: path, htmlUrl: htmlUrl, downloadUrl:downloadUrl)
     }
 }
