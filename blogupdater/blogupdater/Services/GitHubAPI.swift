@@ -24,6 +24,7 @@ public enum GitHub{
     case readMe(owner:String, repo:String)
     case contents(owner:String, repo:String, path:String)
     case createFile(owner:String, repo:String, path:String, content:String, filename:String)
+    case updateFile(owner:String, repo:String, path:String, Content:String, filename:String, sha:String)
 }
 
 private extension String{
@@ -32,7 +33,7 @@ private extension String{
     }
 }
 
-let GitHubProvider = MoyaProvider<GitHub>(endpointClosure: endpointClosure/*, plugins: [NetworkLoggerPlugin(verbose: true)]*/)
+let GitHubProvider = MoyaProvider<GitHub>(endpointClosure: endpointClosure, plugins: [NetworkLoggerPlugin(verbose: true)])
 
 extension GitHub: TargetType{
     
@@ -65,6 +66,8 @@ extension GitHub: TargetType{
             return "repos\(owner)/\(repo)/contents/\(path)"
         case .createFile(let owner, let repo, let path, _, let fileName):
             return "/repos\(owner)/\(repo)/contents/\(path)/\(fileName)"
+        case .updateFile(let owner, let repo, let path, _, let fileName,_):
+            return "/repos\(owner)/\(repo)/contents/\(path)/\(fileName)"
         }
     }
     
@@ -72,7 +75,8 @@ extension GitHub: TargetType{
         switch self {
         case .token(_, _):
             return .post
-        case .createFile(_,_,_,_,_):
+        case .createFile(_,_,_,_,_),
+             .updateFile(_,_,_,_,_,_):
             return .put
             
         case .repoSearch(_),
@@ -131,7 +135,8 @@ extension GitHub: TargetType{
             return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
         case .readMe(_, _),
              .contents(_,_,_),
-             .createFile(_,_,_,_,_):
+             .createFile(_,_,_,_,_),
+             .updateFile(_,_,_,_,_,_):
             
             return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
             
@@ -167,6 +172,9 @@ extension GitHub: TargetType{
             return .requestParameters(parameters: params, encoding: URLEncoding.default)
         case .createFile(_,_, let path,let content,let fileName):
             let params = ["path":"\(path)/\(fileName)", "message":"add file", "content":content, "branch":"master"]
+            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
+        case .updateFile(_,_, let path,let content,let fileName, let sha):
+            let params = ["path":"\(path)/\(fileName)", "message":"modify file", "content":content, "branch":"master", "sha":sha]
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
             
         }

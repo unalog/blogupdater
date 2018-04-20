@@ -96,7 +96,7 @@ class ContentViewModel {
         selectFileViewModel = selectViewMode.filter({ (vm) -> Bool in
              return vm.type == "file"
         }).map({ (contentViewCell) -> ContentViewCell in
-            return ContentViewCell(type: contentViewCell.type, name: contentViewCell.name, path: contentViewCell.path, url: contentViewCell.url)
+            return ContentViewCell(type: contentViewCell.type, name: contentViewCell.name, path: contentViewCell.path, url: contentViewCell.url, sha:contentViewCell.sha)
         })
         
         isMakeableDirectory = BehaviorRelay(value:true);
@@ -112,6 +112,7 @@ struct ContentViewCell {
     let name:String
     let path:String
     let url:String
+    let sha : String
 }
 
 extension Observable{
@@ -119,7 +120,7 @@ extension Observable{
     func mapToContentViewCell() -> Observable<[ContentViewCell]> {
         return self.map{ data  in
            if let data = data as? [Content] {
-                return data.map{ContentViewCell(type: $0.type, name: $0.name, path: $0.path, url : $0.downloadUrl)}
+            return data.map{ContentViewCell(type: $0.type, name: $0.name, path: $0.path, url : $0.downloadUrl, sha:$0.sha)}
             }
             else{
                 return []

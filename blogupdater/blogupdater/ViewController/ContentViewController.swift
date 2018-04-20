@@ -76,7 +76,7 @@ class ContentViewController: UIViewController {
         
         vm.selectFileViewModel.subscribe(onNext: { [weak self] data in
             
-            let viewModel = MarkdownEditViewModel(mode : MarkdownMode.modify(url: data.url, name: data.name) ,provider: vm.provider, path: vm.path, repo:vm.repo)
+            let viewModel = MarkdownEditViewModel(mode : MarkdownMode.modify(url: data.url, name: data.name, sha: data.sha) ,provider: vm.provider, path: vm.path, repo:vm.repo)
             self?.performSegue(withIdentifier: "goMDEditVC", sender: viewModel)
             
         }).disposed(by: disposeBag)

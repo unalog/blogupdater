@@ -23,14 +23,11 @@ enum UploadResult {
 
 enum MarkdownMode{
     case new(name:String)
-    case modify(url:String, name:String)
+    case modify(url:String, name:String, sha:String)
 }
 
-public protocol ContentType{
-    var content : String {get}
-}
 
-extension MarkdownMode:ContentType{
+extension MarkdownMode{
     
    
     internal var content: String {
@@ -48,7 +45,7 @@ extension MarkdownMode:ContentType{
                 return "error"
             }
             
-        case .modify(_,let name):
+        case .modify(_,let name,_):
             
             let documentsURL = FileSystem.downloadDirectory
             let fileURL = documentsURL.appendingPathComponent(name)
@@ -69,8 +66,18 @@ extension MarkdownMode:ContentType{
         switch self {
         case .new(_):
             return String.mdFileName()
-        case .modify(_,let name):
+        case .modify(_,let name,_):
             return name
+        }
+    }
+    
+    var sha:String{
+        
+        switch self {
+        case .modify(_,_,let sha):
+            return sha
+        default:
+            return ""
         }
     }
 }
@@ -103,7 +110,7 @@ class MarkdownEditViewModel{
         
         switch mode {
             
-        case .modify(let url,let name):
+        case .modify(let url,let name, let sha):
 
             loadContent = fileDownloadProvider.rx.request(FileDownload.download(url:url, fileName: name))
                 .observeOn(MainScheduler.instance)
@@ -111,7 +118,24 @@ class MarkdownEditViewModel{
                     DownloadResult.success(content: mode.content)
                 })
                 .asDriver(onErrorJustReturn: .error)
-            uploadResult = Driver.of(.error)
+            
+            let contentObserver = content.asObservable()
+            
+            uploadResult = uploadTabs.asObservable()
+                .withLatestFrom(contentObserver)
+                .flatMapLatest({ (content) -> Observable<Response> in
+                    return provider.rx.request(GitHub.updateFile(owner: repo.owner.name, repo: repo.fullName, path: path, Content: content.toBase64(), filename:name , sha:sha))
+                        .retry(3)
+                        .asObservable()
+                        .observeOn(MainScheduler.instance)
+                })
+                
+                .mapToModel(EditContentResult.self)
+                .map({ (result) -> UploadResult in
+                    .success
+                })
+                .asDriver(onErrorJustReturn: .error)
+            
 
         case .new(_):
 
