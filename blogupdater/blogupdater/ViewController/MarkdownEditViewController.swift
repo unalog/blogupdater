@@ -13,6 +13,7 @@ import RxSwift
 class MarkdownEditViewController: UIViewController {
 
     
+    @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var textView: UITextView!
@@ -57,6 +58,19 @@ class MarkdownEditViewController: UIViewController {
                 self?.dismiss(animated: true, completion: nil)
         }.disposed(by: disposeBag)
         
+        deleteButton.rx.tap.bind(to:vm.deleteTabs).disposed(by: disposeBag)
+        
+        vm.deleteResult.drive(onNext: { [weak self](result) in
+            switch result{
+                
+            case .error:
+                print("error")
+            case .success:
+                self?.dismiss(animated: true, completion: nil)
+                
+            }
+        }).disposed(by: disposeBag)
+        
        
         
         textView.isEditable = false
@@ -72,6 +86,8 @@ class MarkdownEditViewController: UIViewController {
                 
             }
         }).disposed(by: disposeBag)
+        
+        
         
         
         vm.uploadResult.drive(onNext: {[weak self] (result) in

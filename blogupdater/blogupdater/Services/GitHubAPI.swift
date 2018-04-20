@@ -25,6 +25,7 @@ public enum GitHub{
     case contents(owner:String, repo:String, path:String)
     case createFile(owner:String, repo:String, path:String, content:String, filename:String)
     case updateFile(owner:String, repo:String, path:String, Content:String, filename:String, sha:String)
+    case deleteFile(owner:String, repo:String, path:String, filename:String, sha:String)
 }
 
 private extension String{
@@ -68,6 +69,8 @@ extension GitHub: TargetType{
             return "/repos\(owner)/\(repo)/contents/\(path)/\(fileName)"
         case .updateFile(let owner, let repo, let path, _, let fileName,_):
             return "/repos\(owner)/\(repo)/contents/\(path)/\(fileName)"
+        case .deleteFile(let owner, let repo, let path, let filename, _):
+            return "/repos\(owner)/\(repo)/contents/\(path)/\(filename)"
         }
     }
     
@@ -78,6 +81,9 @@ extension GitHub: TargetType{
         case .createFile(_,_,_,_,_),
              .updateFile(_,_,_,_,_,_):
             return .put
+            
+        case .deleteFile(_,_,_,_,_):
+            return .delete
             
         case .repoSearch(_),
              .trendingReposSinceLastWeek,
@@ -136,7 +142,8 @@ extension GitHub: TargetType{
         case .readMe(_, _),
              .contents(_,_,_),
              .createFile(_,_,_,_,_),
-             .updateFile(_,_,_,_,_,_):
+             .updateFile(_,_,_,_,_,_),
+             .deleteFile(_,_,_,_,_):
             
             return "Half measures are as bad as nothing at all.".data(using: String.Encoding.utf8)!
             
@@ -176,7 +183,9 @@ extension GitHub: TargetType{
         case .updateFile(_,_, let path,let content,let fileName, let sha):
             let params = ["path":"\(path)/\(fileName)", "message":"modify file", "content":content, "branch":"master", "sha":sha]
             return .requestParameters(parameters: params, encoding: JSONEncoding.default)
-            
+        case .deleteFile(_,_, let path,let fileName, let sha):
+            let params = ["path":"\(path)/\(fileName)", "message":"modify file", "branch":"master", "sha":sha]
+            return .requestParameters(parameters: params, encoding: JSONEncoding.default)
         }
         
      

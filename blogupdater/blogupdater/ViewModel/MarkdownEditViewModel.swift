@@ -20,6 +20,10 @@ enum UploadResult {
     case error
     case success
 }
+enum DeleteResult{
+    case error
+    case success
+}
 
 enum MarkdownMode{
     case new(name:String)
@@ -90,12 +94,15 @@ class MarkdownEditViewModel{
     let repo:Repo
     let disposeBag = DisposeBag()
     
+    var fileName = BehaviorSubject(value: "")
+    
     var loadContent :Driver<DownloadResult>
     var uploadResult:Driver<UploadResult>
-    var fileName = BehaviorSubject(value: "")
+    var deleteResult:Driver<DeleteResult>
     
     let content = BehaviorRelay(value: "")
     let uploadTabs = PublishSubject<Void>()
+    let deleteTabs = PublishSubject<Void>()
     
     
     init(mode:MarkdownMode, provider:MoyaProvider<GitHub>, path:String, repo:Repo) {
@@ -136,6 +143,16 @@ class MarkdownEditViewModel{
                 })
                 .asDriver(onErrorJustReturn: .error)
             
+            deleteResult = deleteTabs.asObserver()
+                .flatMap({ () -> Observable<Response> in
+                     provider.rx.request(GitHub.deleteFile(owner: repo.owner.name, repo: repo.fullName, path: path, filename: name, sha: sha)).asObservable().observeOn(MainScheduler.instance)
+                })
+                .mapToModel(EditContentResult.self)
+                .map({ (result) -> DeleteResult in
+                    .success
+                })
+                .asDriver(onErrorJustReturn: .error)
+            
 
         case .new(_):
 
@@ -163,6 +180,8 @@ class MarkdownEditViewModel{
                     .success
                 })
                 .asDriver(onErrorJustReturn: .error)
+            
+            deleteResult = Driver.of(.error)
 
         }
         
