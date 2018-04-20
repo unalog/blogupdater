@@ -27,17 +27,23 @@ class ContentViewModel {
     
     let isMakeableDirectory : BehaviorRelay<Bool>
     
+    let viewWillAppear = BehaviorRelay<Bool>(value:false)
+    
     init(provider:MoyaProvider<GitHub>, repo:Repo, path:String) {
         self.provider = provider
         self.repo = repo
         self.path = path
-          dataObserver = provider.rx.request(GitHub.contents(owner: repo.owner.name, repo: repo.fullName, path: path))
-            .asObservable()
-            .mapToModels(Content.self)
+        
+        
+        dataObserver = viewWillAppear.asObservable().flatMapLatest {_ in
+            provider.rx.request(GitHub.contents(owner: repo.owner.name, repo: repo.fullName, path: path))
+                .asObservable()
+                .observeOn(MainScheduler.instance)
+            }.mapToModels(Content.self)
             .map{
                 $0.filter({ content -> Bool in
                     if content.type == "dir"{
-                       if content.name == "css" , path == ""{
+                        if content.name == "css" , path == ""{
                             return false
                         }
                         else if content.name == "_posts" {
@@ -76,6 +82,7 @@ class ContentViewModel {
             .mapToContentViewCell()
             .asDriver(onErrorJustReturn: [])
         
+        
         let selectViewMode = selectIndex.withLatestFrom(dataObserver) { (indexPath, contents) -> ContentViewCell in
             contents[indexPath.row]
         }
@@ -94,6 +101,8 @@ class ContentViewModel {
         
         isMakeableDirectory = BehaviorRelay(value:true);
         isMakeableDirectory.accept(path.hasSuffix("/_posts"))
+        
+        
     }
 }
 

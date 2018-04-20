@@ -12,12 +12,14 @@ import RxSwift
 
 class MarkdownEditViewController: UIViewController {
 
-    var viewModel : MarkdownEditViewModel?
+    
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var fileNameTextField: UITextField!
+    @IBOutlet weak var pathLabel: UILabel!
     
+    var viewModel : MarkdownEditViewModel?
     let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -47,24 +49,48 @@ class MarkdownEditViewController: UIViewController {
     func bindToRx() {
     
         guard let vm = viewModel else{ return }
+       
+        uploadButton.rx.tap.bind(to:vm.uploadTabs).disposed(by: disposeBag)
         
         closeButton.rx.tap.throttle(1.0,scheduler:MainScheduler.instance)
             .subscribe { [weak self] event in
                 self?.dismiss(animated: true, completion: nil)
         }.disposed(by: disposeBag)
         
+       
         
         textView.isEditable = false
         
-        vm.content.subscribe(onNext: { [weak self] text in
-            self?.textView.isEditable = true
-            self?.textView.text = text
+        vm.loadContent.drive(onNext: { [weak self] (result) in
+           
+            switch result{
+            case .success(let content):
+                self?.textView.text = content
+                self?.textView.isEditable = true
+            case .error:
+                self?.textView.isEditable = false
+                
+            }
         }).disposed(by: disposeBag)
+        
+        
+        vm.uploadResult.drive(onNext: {[weak self] (result) in
+            
+            switch result{
+            case .success:
+                self?.dismiss(animated: true, completion: nil)
+            case .error:
+                print("error")
+            }
+        }).disposed(by: disposeBag)
+        
         
         textView.rx.text.orEmpty.bind(to:vm.content).disposed(by:disposeBag)
         
+        fileNameTextField.text = try? vm.fileName.value()
+        fileNameTextField.rx.text.orEmpty.bind(to:vm.fileName).disposed(by: disposeBag)
         
-        
-        
+        pathLabel.text = vm.path
+       
     }
 }

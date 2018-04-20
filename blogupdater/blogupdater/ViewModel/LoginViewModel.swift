@@ -44,6 +44,7 @@ class LoginViewModel {
         loginFinished = loginTaps.asObservable()
             .withLatestFrom(usernameAndPassword)
             .flatMapLatest({
+                
                 provider.rx.request(GitHub.token(username: $0, password: $1))
                     .retry(3)
                     .asObservable()

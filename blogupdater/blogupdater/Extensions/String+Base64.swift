@@ -16,10 +16,10 @@ extension String{
         return String(data: data, encoding: .utf8)
     }
     
-    func toBase64() -> String? {
+    func toBase64() -> String {
         
         guard let data = self.data(using: String.Encoding.utf8) else {
-            return nil
+            return ""
         }
         
         return data.base64EncodedString(options: Data.Base64EncodingOptions(rawValue: 0))

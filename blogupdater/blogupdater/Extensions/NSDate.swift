@@ -20,6 +20,7 @@ extension Date {
         let components = (Calendar.current as NSCalendar).components(NSCalendar.Unit.day, from: date, to: self, options: NSCalendar.Options())
         return components.day!
     }
+    
 }
 
 extension Date {

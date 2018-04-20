@@ -48,6 +48,7 @@ class LoginViewController: UIViewController {
         
         userNameTextField.rx.text.orEmpty.bind(to: viewModel.username).disposed(by: disposeBag)
         passwordTextField.rx.text.orEmpty.bind(to: viewModel.password).disposed(by: disposeBag)
+        
         loginButton.rx.tap.bind(to:viewModel.loginTaps).disposed(by: disposeBag)
         
         viewModel.loginEnabled.drive(loginButton.rx.isEnabled).disposed(by: disposeBag)

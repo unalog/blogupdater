@@ -34,6 +34,7 @@ class ContentViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
 
     
     // MARK: - Navigation
@@ -75,7 +76,7 @@ class ContentViewController: UIViewController {
         
         vm.selectFileViewModel.subscribe(onNext: { [weak self] data in
             
-            let viewModel = MarkdownEditViewModel(mode : MarkdownMode.modify(url: data.url, name: data.name) ,provider: vm.provider, path: vm.path)
+            let viewModel = MarkdownEditViewModel(mode : MarkdownMode.modify(url: data.url, name: data.name) ,provider: vm.provider, path: vm.path, repo:vm.repo)
             self?.performSegue(withIdentifier: "goMDEditVC", sender: viewModel)
             
         }).disposed(by: disposeBag)
@@ -89,9 +90,12 @@ class ContentViewController: UIViewController {
         addButton.rx.tap.throttle(1.0, scheduler:MainScheduler.instance)
             .subscribe { [weak self] event in
                 
-                let viewModel = MarkdownEditViewModel(mode : MarkdownMode.new(name: "post_mark_down.md") ,provider: vm.provider, path: vm.path)
+                let viewModel = MarkdownEditViewModel(mode : MarkdownMode.new(name: "post_mark_down.md") ,provider: vm.provider, path: vm.path,repo:vm.repo)
                 self?.performSegue(withIdentifier: "goMDEditVC", sender: viewModel)
         }.disposed(by: disposeBag)
+        
+        self.rx.viewWillAppear.bind(to: vm.viewWillAppear)
+            .disposed(by: disposeBag)
     }
 }
 

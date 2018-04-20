@@ -14,7 +14,7 @@ import SwiftyJSON
 
 class RepositoryViewModel {
 
-    let readMeTaps = PublishSubject<Void>()
+   
     
     var fullName : String{
         return repo.fullName
@@ -30,6 +30,8 @@ class RepositoryViewModel {
     var startsCount:String{
         return String(repo.stargazers)
     }
+    
+     let readMeTaps = PublishSubject<Void>()
     
     let readMeUrlObservable : Observable<URL>
     let dataObservable : Driver<[RepositorySectionViewModel]>
