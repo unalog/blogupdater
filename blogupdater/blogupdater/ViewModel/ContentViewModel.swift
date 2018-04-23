@@ -27,19 +27,49 @@ class ContentViewModel {
     
     let isMakeableDirectory : BehaviorRelay<Bool>
     
-    let viewWillAppear = BehaviorRelay<Bool>(value:false)
+    let viewDidAppear = BehaviorRelay<Bool>(value:false)
+    
+    let reflashTaps = PublishSubject<Void>()
+    
+    
+    let disposeBag = DisposeBag()
     
     init(provider:MoyaProvider<GitHub>, repo:Repo, path:String) {
         self.provider = provider
         self.repo = repo
         self.path = path
         
+        let reflashObserver = reflashTaps.asObserver()
+        let didAppearObserver = viewDidAppear.asObservable().filter({ (bool) -> Bool in
+            return bool
+        }).map { (bool) -> Void in
+            return Void()
+        }
         
-        dataObserver = viewWillAppear.asObservable().flatMapLatest {_ in
-            provider.rx.request(GitHub.contents(owner: repo.owner.name, repo: repo.fullName, path: path))
-                .asObservable()
-                .observeOn(MainScheduler.instance)
-            }.mapToModels(Content.self)
+        reflashObserver.subscribe(onNext: { () in
+            print("reflash Observer")
+        }).disposed(by: disposeBag)
+        
+        didAppearObserver.subscribe(onNext: { () in
+            print("didAppearObserver Observer")
+        }).disposed(by: disposeBag)
+        
+        viewDidAppear.subscribe(onNext: { (bool) in
+            print("viewDidAppear Observer=\(bool)")
+        }).disposed(by: disposeBag)
+        
+        let dataRequest = Observable.merge(reflashObserver,didAppearObserver)
+        
+        dataObserver = dataRequest.throttle(1, scheduler: MainScheduler.instance)
+            .flatMapLatest({_  in
+                provider.rx.request(GitHub.contents(owner: repo.owner.name, repo: repo.fullName, path: path))
+                    .asObservable()
+                    .observeOn(MainScheduler.instance)
+                    .do(onNext: { (response) in
+                        print("request!!")
+                    })
+            })
+            .mapToModels(Content.self)
             .map{
                 $0.filter({ content -> Bool in
                     if content.type == "dir"{

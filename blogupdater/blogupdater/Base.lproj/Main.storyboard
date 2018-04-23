@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -399,10 +400,14 @@
                         <viewLayoutGuide key="safeArea" id="kes-dg-ru5"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="PR0-kr-qCM">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="lxc-NF-bKT"/>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Add" id="lxc-NF-bKT"/>
+                            <barButtonItem title="reflash" id="55a-tK-dax"/>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="addButton" destination="lxc-NF-bKT" id="xPs-iS-4Rg"/>
+                        <outlet property="reflashButton" destination="55a-tK-dax" id="pWf-Lh-IpP"/>
                         <outlet property="tableView" destination="2n0-Xa-CQv" id="85J-K6-3dQ"/>
                         <segue destination="2sV-wA-zar" kind="presentation" identifier="goMDEditVC" id="Ytw-G0-bGb"/>
                     </connections>

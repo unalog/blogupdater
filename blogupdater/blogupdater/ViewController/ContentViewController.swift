@@ -19,6 +19,7 @@ class ContentViewController: UIViewController {
     
     let disposeBag = DisposeBag()
     
+    @IBOutlet weak var reflashButton: UIBarButtonItem!
     @IBOutlet weak var addButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -94,8 +95,10 @@ class ContentViewController: UIViewController {
                 self?.performSegue(withIdentifier: "goMDEditVC", sender: viewModel)
         }.disposed(by: disposeBag)
         
-        self.rx.viewWillAppear.bind(to: vm.viewWillAppear)
+        self.rx.viewWillAppear.bind(to: vm.viewDidAppear)
             .disposed(by: disposeBag)
+        
+        reflashButton.rx.tap.bind(to:vm.reflashTaps).disposed(by:disposeBag)
     }
 }
 

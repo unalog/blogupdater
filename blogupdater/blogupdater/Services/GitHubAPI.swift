@@ -34,7 +34,7 @@ private extension String{
     }
 }
 
-let GitHubProvider = MoyaProvider<GitHub>(endpointClosure: endpointClosure, plugins: [NetworkLoggerPlugin(verbose: true)])
+let GitHubProvider = MoyaProvider<GitHub>(endpointClosure: endpointClosure/*, plugins: [NetworkLoggerPlugin(verbose: true)]*/)
 
 extension GitHub: TargetType{
     
