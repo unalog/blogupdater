@@ -95,7 +95,7 @@ class ContentViewController: UIViewController {
                 self?.performSegue(withIdentifier: "goMDEditVC", sender: viewModel)
         }.disposed(by: disposeBag)
         
-        self.rx.viewWillAppear.bind(to: vm.viewDidAppear)
+        self.rx.viewDidAppear.bind(to: vm.viewDidAppear)
             .disposed(by: disposeBag)
         
         reflashButton.rx.tap.bind(to:vm.reflashTaps).disposed(by:disposeBag)

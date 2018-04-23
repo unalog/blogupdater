@@ -40,27 +40,13 @@ class ContentViewModel {
         self.path = path
         
         let reflashObserver = reflashTaps.asObserver()
-        let didAppearObserver = viewDidAppear.asObservable().filter({ (bool) -> Bool in
-            return bool
-        }).map { (bool) -> Void in
+        let didAppearObserver = viewDidAppear.asObservable().map { (bool) -> Void in
             return Void()
         }
         
-        reflashObserver.subscribe(onNext: { () in
-            print("reflash Observer")
-        }).disposed(by: disposeBag)
-        
-        didAppearObserver.subscribe(onNext: { () in
-            print("didAppearObserver Observer")
-        }).disposed(by: disposeBag)
-        
-        viewDidAppear.subscribe(onNext: { (bool) in
-            print("viewDidAppear Observer=\(bool)")
-        }).disposed(by: disposeBag)
-        
         let dataRequest = Observable.merge(reflashObserver,didAppearObserver)
         
-        dataObserver = dataRequest.throttle(1, scheduler: MainScheduler.instance)
+        dataObserver = dataRequest.throttle(2, latest: false, scheduler: MainScheduler.instance)
             .flatMapLatest({_  in
                 provider.rx.request(GitHub.contents(owner: repo.owner.name, repo: repo.fullName, path: path))
                     .asObservable()
