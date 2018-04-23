@@ -38,8 +38,7 @@ extension MarkdownMode{
         switch self {
         case .new(let name):
             
-            Bundle.main.path(forResource: name.fileName(), ofType: name.fileExtension())
-            guard let path = Bundle.main.path(forResource: "post_mark_down", ofType: "md") else {
+            guard let path = Bundle.main.path(forResource: name.fileName(), ofType: name.fileExtension()) else {
                 return "path null"
             }
             
@@ -84,6 +83,7 @@ extension MarkdownMode{
             return ""
         }
     }
+    
 }
 
 class MarkdownEditViewModel{
